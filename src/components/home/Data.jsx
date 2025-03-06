@@ -4,7 +4,7 @@ const Data = () => {
     return (
         <div className="home__data">
             <h1 className="home__title">
-                Sagar Barate
+               Sagar Barate  
                 <svg
                     width="36"
                     height="36"
@@ -57,13 +57,18 @@ const Data = () => {
             </h1>
 
             <h3 className="home__subtitle">
-                Software Engineer
+                Friendly Software Engineer
             </h3>
 
-            <p className="home__description">
-            Software Engineer with 3 years of experience as a full-stack developer in the design, development maintenance of
-            various challenging projects. Worked extensively on JavaScriptES6 ,HTML,CSS, ReactJs, NodeJS, Linux, SQL to write
-            modern, clean, and scalable code.
+            <p className="home__description" style={{
+    color: "black",
+    
+    border: "0.5px solid black", // Border around the text
+    padding: "10px", // Space inside the box
+    display: "inline-block", // Prevents full-width stretching
+    borderRadius: "5px", // Rounded corners
+    backgroundColor: "white"}}>
+            Friendly and collaborative Software Engineer with 3 years of experience as a full-stack developer. Passionate about designing, developing, and maintaining innovative projects. Skilled in JavaScript ES6, HTML, CSS, React.js, Node.js, Linux, and SQL, with a focus on writing clean, modern, and scalable code. Always eager to learn, share knowledge, and build user-friendly solutions! 🚀
  
             </p>
 

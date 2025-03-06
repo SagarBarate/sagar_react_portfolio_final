@@ -141,6 +141,15 @@
   .home__description {
     max-width: initial;
     margin-bottom: var(--mb-2-5);
+    color: hsl(0, 0%, 20%); /* Darker color */
+    background-color: white; /* White background */
+    padding: 1rem; /* Add padding for better spacing */
+    border-radius: 0.5rem; /* Optional: Add rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+    z-index: 10; /* Bring it to the front */
+    position: relative; /* Required for z-index to work */
+    min-width: 300px; /* Ensure it has enough space */
+    min-height: 100px; /* Ensure it has enough space */
   }
 
   .home__img {

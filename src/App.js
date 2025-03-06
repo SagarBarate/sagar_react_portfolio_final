@@ -11,10 +11,12 @@ import Services from './components/services/Services'
 import Skills from './components/skills/Skills'
 import Testimonials from './components/testimonials/Testimonials'
 import Work from './components/work/Work'
+import CloudHoverEffect from "./CloudHoverEffect"; // Import the new component
 
 const App = () => {
   return (
     <div>
+       <CloudHoverEffect />
       <Header />
 
       <main className="main">
