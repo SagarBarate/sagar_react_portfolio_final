@@ -8,25 +8,25 @@ export const projectsData = [
     {
         id: 1,
         image: Work1,
-        title: "Web design",
+        title: "Hungry-Heart-Master",
         category: "Front End",
     },
     {
         id: 2,
         image: Work2,
-        title: "App movil",
+        title: "Chat Application",
         category: "Front End",
     },
     {
         id: 3,
         image: Work3,
-        title: "Brand design",
+        title: "Containerizing Maven Application Using Docker compose, Swarm, Kubernetes and Implementing ELK Stack",
         category: "DevOps",
     },
     {
         id: 4,
         image: Work4,
-        title: "App movil",
+        title: "Proxima (Prject Management Tool) React+Java",
         category: "Backend",
     },
     {
