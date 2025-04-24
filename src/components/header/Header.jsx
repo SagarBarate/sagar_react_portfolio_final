@@ -19,7 +19,8 @@ const Header = () => {
 	const [activeNav, setActiveNav] = useState("#home");
 
 	return (
-		<header className="header" >
+		<header className="header" //style={{backgroundColor :"black"}} 
+		>
 
 			<nav className="nav container">
 				<a href="index.html" className="nav__logo">Sagar Barate</a>
