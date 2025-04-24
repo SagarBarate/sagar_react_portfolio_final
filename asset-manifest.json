@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/sagar_react_portfolio_final/static/css/main.142d64e8.css",
+    "main.js": "/sagar_react_portfolio_final/static/js/main.caa01bd1.js",
+    "static/media/about.jpeg": "/sagar_react_portfolio_final/static/media/about.94e1897cf8b4bcf92ad0.jpeg",
+    "static/media/profile.jpeg": "/sagar_react_portfolio_final/static/media/profile.94e1897cf8b4bcf92ad0.jpeg",
+    "static/media/SAGAR BARATE SDE.pdf": "/sagar_react_portfolio_final/static/media/SAGAR BARATE SDE.087c96348d7e81d5614b.pdf",
+    "static/media/testimonial3.png": "/sagar_react_portfolio_final/static/media/testimonial3.2e18bfe27c6d2e2e9fdc.png",
+    "static/media/work2.jpg": "/sagar_react_portfolio_final/static/media/work2.e52a0c2981a6c11ba468.jpg",
+    "static/media/testimonial2.png": "/sagar_react_portfolio_final/static/media/testimonial2.39a53f7f092f07f5bceb.png",
+    "static/media/work4.jpg": "/sagar_react_portfolio_final/static/media/work4.aee985961b648f4df1f2.jpg",
+    "static/media/work5.jpg": "/sagar_react_portfolio_final/static/media/work5.094ec4a2224db8908873.jpg",
+    "static/media/work1.jpg": "/sagar_react_portfolio_final/static/media/work1.321b4ae3bf404acdfdc6.jpg",
+    "static/media/work3.jpg": "/sagar_react_portfolio_final/static/media/work3.135e9065694bc13dc31d.jpg",
+    "static/media/testimonial1.png": "/sagar_react_portfolio_final/static/media/testimonial1.89079c1d25f2c94ceb89.png",
+    "index.html": "/sagar_react_portfolio_final/index.html",
+    "main.142d64e8.css.map": "/sagar_react_portfolio_final/static/css/main.142d64e8.css.map",
+    "main.caa01bd1.js.map": "/sagar_react_portfolio_final/static/js/main.caa01bd1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.142d64e8.css",
+    "static/js/main.caa01bd1.js"
+  ]
+}
