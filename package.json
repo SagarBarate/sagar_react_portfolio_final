@@ -2,7 +2,6 @@
   "name": "react-portfolio-1",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://SagarBarate.github.io/sagar_react_portfolio_final",
   "dependencies": {
     "@emailjs/browser": "^3.10.0",
     "@testing-library/jest-dom": "^5.16.5",
