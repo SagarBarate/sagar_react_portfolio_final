@@ -9,7 +9,7 @@ import Qualification from './components/qualification/Qualification'
 import ScrollUp from './components/scrollup/ScrollUp'
 import Services from './components/services/Services'
 import Skills from './components/skills/Skills'
-import Testimonials from './components/testimonials/Testimonials'
+// import Testimonials from './components/testimonials/Testimonials'
 import Work from './components/work/Work'
 import CloudHoverEffect from "./CloudHoverEffect"; // Import the new component
 

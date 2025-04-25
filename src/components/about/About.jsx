@@ -1,4 +1,4 @@
-import React ,{useEffect, useState} from 'react'
+// import React ,{useEffect, useState} from 'react'
 
 import './about.css'
 import AboutImg from '../../assets/about.jpeg'
