@@ -11,7 +11,7 @@ export const projectsData = [
         description: "A comprehensive blockchain-based recycling reward system that incentivizes proper waste disposal through NFT badges and rewards. Features mobile app, admin portal, smart contracts, and IoT integration.",
         category: "Blockchain",
         technologies: ["Solidity", "React Native", "Node.js", "AWS Lambda", "Hardhat", "MQTT", "TypeScript"],
-        githubLink: "https://github.com/SagarBarate/clean-nft-contract",
+        githubLink: "https://github.com/SagarBarate/CleanNFT",
         demoLink: null
     },
     {

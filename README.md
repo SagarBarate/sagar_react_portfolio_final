@@ -56,6 +56,7 @@ Featured projects with modern card design:
 1. **CleanNFT - Blockchain Recycling System** (Blockchain)
    - Comprehensive blockchain-based recycling reward system
    - Tech: Solidity, React Native, Node.js, AWS Lambda, Hardhat, MQTT, TypeScript
+   - Repository: [CleanNFT](https://github.com/SagarBarate/CleanNFT)
 
 2. **Hungry-Heart-Master** (Front End)
    - Food delivery application with authentication and order management
