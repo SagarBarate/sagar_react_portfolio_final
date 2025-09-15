@@ -5,6 +5,26 @@ import Work4 from '../../assets/work4.jpg'
 import Work5 from '../../assets/work5.jpg'
 export const projectsData = [
     {
+        id: 4,
+        image: Work3,
+        title: "Dockerized Microservice Orchestration",
+        description: "Containerized Maven application using Docker Compose, Swarm, Kubernetes with ELK stack implementation for monitoring and logging.",
+        category: "DevOps",
+        technologies: ["Docker", "Kubernetes", "ELK Stack", "Maven", "Java"],
+        githubLink: "https://github.com/SagarBarate/dockerized-microservice-orchestration",
+        demoLink: null
+    },
+    {
+        id: 6,
+        image: Work5,
+        title: "FramerFlow - Video Asset Management",
+        description: "Cloud-based video asset management system with version control, automated processing, and CDN distribution.",
+        category: "Backend",
+        technologies: ["AWS S3", "AWS Lambda", "DynamoDB", "CloudFront", "Python"],
+        githubLink: "https://github.com/SagarBarate/FramerFlow",
+        demoLink: null
+    },
+    {
         id: 1,
         image: Work1,
         title: "CleanNFT - Blockchain Recycling System",
@@ -22,7 +42,7 @@ export const projectsData = [
         category: "Front End",
         technologies: ["React", "JavaScript", "CSS3", "HTML5"],
         githubLink: "https://github.com/SagarBarate/Hungry-Heart-master",
-        demoLink: null
+        demoLink: "https://sagar-hungry-heart.netlify.app/"
     },
     {
         id: 3,
@@ -35,16 +55,6 @@ export const projectsData = [
         demoLink: null
     },
     {
-        id: 4,
-        image: Work3,
-        title: "Dockerized Microservice Orchestration",
-        description: "Containerized Maven application using Docker Compose, Swarm, Kubernetes with ELK stack implementation for monitoring and logging.",
-        category: "DevOps",
-        technologies: ["Docker", "Kubernetes", "ELK Stack", "Maven", "Java"],
-        githubLink: "https://github.com/SagarBarate/dockerized-microservice-orchestration",
-        demoLink: null
-    },
-    {
         id: 5,
         image: Work4,
         title: "Proxima - Project Management Tool",
@@ -52,16 +62,6 @@ export const projectsData = [
         category: "Backend",
         technologies: ["React", "Java", "Spring Boot", "MySQL", "REST API"],
         githubLink: "https://github.com/SagarBarate/scrum-task-manager",
-        demoLink: null
-    },
-    {
-        id: 6,
-        image: Work5,
-        title: "FramerFlow - Video Asset Management",
-        description: "Cloud-based video asset management system with version control, automated processing, and CDN distribution.",
-        category: "Backend",
-        technologies: ["AWS S3", "AWS Lambda", "DynamoDB", "CloudFront", "Python"],
-        githubLink: "https://github.com/SagarBarate/FramerFlow",
         demoLink: null
     },
 ];

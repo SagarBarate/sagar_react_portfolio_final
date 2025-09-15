@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './header.css'
 
 const Header = () => {
@@ -17,6 +17,31 @@ const Header = () => {
 	/*=============== Toggle Menu ===============*/
 	const [Toggle, showMenu] = useState(false);
 	const [activeNav, setActiveNav] = useState("#home");
+
+	/*=============== Theme (Light/Dark) ===============*/
+	const THEME_KEY = 'portfolio-theme';
+	const [isDark, setIsDark] = useState(false);
+
+	useEffect(() => {
+		const saved = localStorage.getItem(THEME_KEY);
+		const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+		// Default to dark if no saved preference
+		const shouldBeDark = saved ? saved === 'dark' : true;
+		setIsDark(shouldBeDark);
+		if (shouldBeDark) {
+			document.documentElement.classList.add('theme-dark');
+		}
+	}, []);
+
+	useEffect(() => {
+		if (isDark) {
+			document.documentElement.classList.add('theme-dark');
+			localStorage.setItem(THEME_KEY, 'dark');
+		} else {
+			document.documentElement.classList.remove('theme-dark');
+			localStorage.setItem(THEME_KEY, 'light');
+		}
+	}, [isDark]);
 
 	return (
 		<header className="header" //style={{backgroundColor :"black"}} 
@@ -115,8 +140,17 @@ const Header = () => {
 					<i className="uil uil-times nav__close" onClick={() => showMenu(!Toggle)}></i>
 				</div>
 
-				<div className="nav__toggle" onClick={() => showMenu(!Toggle)}>
-					<i className="uil uil-apps"></i>
+				<div className="nav__right">
+					<button className="theme-toggle" aria-label="Toggle dark mode" onClick={() => setIsDark(v => !v)}>
+						{isDark ? (
+							<i className="uil uil-sun"></i>
+						) : (
+							<i className="uil uil-moon"></i>
+						)}
+					</button>
+					<div className="nav__toggle" onClick={() => showMenu(!Toggle)}>
+						<i className="uil uil-apps"></i>
+					</div>
 				</div>
 			</nav>
 		</header>

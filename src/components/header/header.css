@@ -15,6 +15,12 @@
   column-gap: 1rem;
 }
 
+.nav__right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
 .nav__logo,
 .nav__toggle {
   color: var(--title-color);
@@ -42,6 +48,19 @@
   display: none;
 }
 
+.theme-toggle {
+  background: transparent;
+  color: var(--title-color);
+  font-size: 1.25rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+}
+
+.theme-toggle:hover {
+  border-color: var(--title-color);
+}
+
 /* Active link */
 .active-link,
 .nav__link:hover {
@@ -51,6 +70,7 @@
 /* Change Background Header */
 .scroll-header {
   box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.15);
+  background-color: var(--body-color);
 }
 
 /*=============== BREAKPOINTS ===============*/
