@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-orange-50 via-white to-orange-100;
+    background-image: 
+      radial-gradient(circle at 20% 50%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(249, 115, 22, 0.1) 0%, transparent 50%);
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/20 backdrop-blur-md border-2 border-ninja-orange/30;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-ninja-orange to-orange-600 bg-clip-text text-transparent;
+    text-shadow: 2px 2px 4px rgba(249, 115, 22, 0.3);
+  }
+
+  .kunai-button {
+    @apply relative px-6 py-3 bg-ninja-orange text-white font-bold uppercase tracking-wider;
+    clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+    transition: all 0.3s ease;
+  }
+
+  .kunai-button:hover {
+    @apply bg-orange-600 scale-105;
+    transform: translateY(-2px);
+  }
+
+  .scroll-card {
+    @apply relative bg-white/90 border-2 border-ninja-orange;
+    clip-path: polygon(5% 0%, 95% 0%, 100% 5%, 100% 95%, 95% 100%, 5% 100%, 0% 95%, 0% 5%);
+  }
+
+  .scroll-card:hover {
+    transform: translateY(-4px) scale(1.02);
+  }
+
+  .ninja-text {
+    @apply font-bold text-ninja-black;
+    text-shadow: 3px 3px 0px rgba(249, 115, 22, 0.5), -1px -1px 0px rgba(0, 0, 0, 0.8);
+    letter-spacing: 0.1em;
+  }
+
+  .ninja-border {
+    @apply border-4 border-ninja-orange;
+  }
+}
+
