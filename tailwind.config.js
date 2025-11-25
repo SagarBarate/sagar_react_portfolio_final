@@ -8,6 +8,10 @@ export default {
     extend: {
       colors: {
         'ninja-orange': '#F97316',
+        'dark-orange': '#CC5500',
+        'navy-blue': '#0A1929',
+        'navy-900': '#0A1929',
+        'navy-800': '#132F4C',
         'ninja-black': '#000000',
         'ninja-dark': '#1a1a1a',
       },

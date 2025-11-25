@@ -37,7 +37,7 @@ const SocialLinks = ({ className = "" }) => {
           href={link.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="p-3 bg-ninja-orange/20 border-2 border-ninja-orange rounded-full hover:bg-ninja-orange hover:text-white transition-all duration-300 transform hover:scale-110 hover:rotate-12"
+          className="p-3 bg-navy-800/40 border-2 border-orange-500/40 rounded-full hover:bg-dark-orange hover:text-white transition-all duration-300 transform hover:scale-110"
           aria-label={link.name}
         >
           {link.icon}

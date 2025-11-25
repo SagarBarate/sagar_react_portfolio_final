@@ -1,11 +1,14 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import ProjectModal from '../components/ProjectModal';
+import Shimmer from '../components/Shimmer';
 import { projects } from '../data/projects';
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState({});
 
   const handleProjectClick = (project) => {
     setSelectedProject(project);
@@ -17,8 +20,18 @@ const Projects = () => {
     setSelectedProject(null);
   };
 
+  useEffect(() => {
+    projects.forEach((project) => {
+      const img = new Image();
+      img.src = project.image;
+      img.onload = () => {
+        setImagesLoaded((prev) => ({ ...prev, [project.id]: true }));
+      };
+    });
+  }, []);
+
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen dotted-background">
       <Header />
       
       <div className="pt-24 pb-16 px-4">
@@ -27,7 +40,7 @@ const Projects = () => {
             <h1 className="text-5xl md:text-6xl font-bold mb-4 ninja-text">
               My <span className="text-gradient">Projects</span> 📦
             </h1>
-            <p className="text-xl text-gray-700 max-w-2xl mx-auto font-semibold">
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto font-semibold">
               A collection of projects I've built, showcasing my skills and passion for development
             </p>
           </div>
@@ -37,22 +50,28 @@ const Projects = () => {
               <div
                 key={project.id}
                 onClick={() => handleProjectClick(project)}
-                className="scroll-card glass overflow-hidden cursor-pointer transform transition-all duration-300"
+                className="scroll-card border-3d overflow-hidden cursor-pointer transform transition-all duration-300 bg-navy-800/40"
               >
                 <div className="relative h-48 overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  {!imagesLoaded[project.id] ? (
+                    <Shimmer type="image" className="w-full h-full" />
+                  ) : (
+                    <>
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-navy-900/90 to-transparent" />
+                    </>
+                  )}
                 </div>
                 
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold mb-2 text-gray-900">
+                  <h3 className="text-2xl font-bold mb-2 text-white">
                     {project.title}
                   </h3>
-                  <p className="text-gray-600 mb-4 line-clamp-2">
+                  <p className="text-gray-300 mb-4 line-clamp-2">
                     {project.description}
                   </p>
                   
@@ -60,13 +79,13 @@ const Projects = () => {
                     {project.techStack.slice(0, 3).map((tech, index) => (
                       <span
                         key={index}
-                        className="px-2 py-1 bg-ninja-orange/20 text-ninja-orange border border-ninja-orange text-xs font-bold uppercase"
+                        className="px-2 py-1 bg-navy-900/60 text-white border border-orange-500/40 text-xs font-bold uppercase"
                       >
                         {tech}
                       </span>
                     ))}
                     {project.techStack.length > 3 && (
-                      <span className="px-2 py-1 bg-gray-200 text-gray-700 border border-gray-400 text-xs font-bold">
+                      <span className="px-2 py-1 bg-navy-900/40 text-gray-300 border border-orange-500/20 text-xs font-bold">
                         +{project.techStack.length - 3}
                       </span>
                     )}
@@ -90,7 +109,7 @@ const Projects = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
-                        className="flex-1 kunai-button text-sm bg-ninja-black hover:bg-gray-800"
+                        className="flex-1 kunai-button text-sm bg-navy-800/60 hover:bg-navy-800/80 text-white border border-orange-500/40"
                       >
                         Code
                       </a>
@@ -108,6 +127,7 @@ const Projects = () => {
         isOpen={isModalOpen}
         onClose={closeModal}
       />
+      <Footer />
     </div>
   );
 };

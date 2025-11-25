@@ -3,9 +3,15 @@ import { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import NinjaRunner from '../components/NinjaRunner';
 import SocialLinks from '../components/SocialLinks';
+import Contact from '../components/Contact';
+import WorkExperience from '../components/WorkExperience';
+import Footer from '../components/Footer';
+import Shimmer from '../components/Shimmer';
+import SagarBaratePIC from '../assets/SagarBaratePIC.png';
 
 const Landing = () => {
   const [showScrollButton, setShowScrollButton] = useState(false);
+  const [profileImageLoaded, setProfileImageLoaded] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,60 +35,74 @@ const Landing = () => {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    const img = new Image();
+    img.src = SagarBaratePIC;
+    img.onload = () => setProfileImageLoaded(true);
+  }, []);
+
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen dotted-background">
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4">
+      <section className="pt-24 pb-12 px-4">
         <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-slash">
-              <span className="ninja-text text-ninja-black">Hello, I'm </span>
-              <span className="text-gradient">Sagar</span>
-            </h1>
-            
-            {/* Animated Code → Cloud Text */}
-            <div className="flex items-center justify-center gap-3 mb-8 text-3xl md:text-5xl font-mono">
-              <span className="ninja-text text-ninja-black">{codeSnippets[0]}</span>
-              <span className="text-ninja-orange animate-pulse text-4xl md:text-6xl">
-                {codeSnippets[1]}
-              </span>
-              <span className="text-gradient">
-                {codeSnippets[2]}
-              </span>
-            </div>
-
-            <p className="text-xl md:text-2xl text-gray-700 mb-12 max-w-2xl mx-auto font-semibold">
-              Full-Stack Developer | Cloud Enthusiast | Problem Solver
-            </p>
-          </div>
-
           {/* Game and Profile Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 items-start">
-            {/* Game on Left - Larger */}
-            <div className="order-2 lg:order-1">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12 items-start">
+            {/* Game on Left */}
+            <div className="order-3 lg:order-1">
               <NinjaRunner />
             </div>
 
-           {/* Profile Photo on Right - Larger (Rectangle, Not Circle) */}
-<div className="order-1 lg:order-2 flex justify-center lg:justify-end">
-  <div className="w-[380px] h-auto border-4 border-ninja-orange bg-gray-100 shadow-lg">
-    <img
-      src="/Users/sagargopalbarate/Desktop/Projects/SagarPortfolio/src/assets/SagarBaratePIC.png"
-      alt="Profile"
-      className="w-full h-auto object-contain"
-    />
-  </div>
-</div>
+            {/* Right Side: Hero Text + Profile Picture */}
+            <div className="order-1 lg:order-2 flex flex-col lg:pl-8">
+              {/* Hero Text - Above Profile Picture */}
+              <div className="text-center md:text-left mb-6 md:ml-4">
+                <h1 className="text-3xl md:text-5xl font-bold mb-6">
+                  <span className="ninja-text">Hello, I'm </span>
+                  <span className="text-gradient">Sagar</span>
+                </h1>
+                
+                {/* Animated Code → Cloud Text */}
+                <div className="flex items-center justify-center md:justify-start gap-3 mb-6 text-3xl md:text-5xl font-mono md:ml-2">
+                  <span className="ninja-text">{codeSnippets[0]}</span>
+                  <span className="text-white animate-pulse text-4xl md:text-6xl">
+                    {codeSnippets[1]}
+                  </span>
+                  <span className="text-gradient">
+                    {codeSnippets[2]}
+                  </span>
+                </div>
 
+                <p className="text-xl md:text-2xl text-gray-300 font-semibold md:ml-2">
+                  Full-Stack Developer | Cloud Enthusiast | Problem Solver
+                </p>
+              </div>
+
+              {/* Profile Photo - Below Hero Text with Shimmer */}
+              <div className="flex justify-center md:justify-end lg:justify-end">
+                <div className="relative w-full max-w-sm">
+                  {!profileImageLoaded ? (
+                    <Shimmer type="profile" className="w-full max-w-sm h-100 rounded-lg" />
+                  ) : (
+                    <img
+                      src={SagarBaratePIC}
+                      alt="Profile"
+                      className="w-full max-w-sm h-auto object-contain rounded-lg"
+                      onLoad={() => setProfileImageLoaded(true)}
+                    />
+                  )}
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Scroll Down Button */}
           <div className="flex justify-center">
             <button
               onClick={scrollToProfile}
-              className="animate-bounce p-4 bg-ninja-orange hover:bg-orange-600 text-white rounded-full shadow-lg transition-colors border-2 border-ninja-black"
+              className="animate-bounce p-4 bg-dark-orange hover:bg-dark-orange/90 text-white rounded-full shadow-lg transition-colors border border-orange-500/50"
               aria-label="Scroll to profile"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -94,29 +114,37 @@ const Landing = () => {
       </section>
 
       {/* Profile Section */}
-      <section id="profile-section" className="py-20 px-4 bg-white/30">
-        <div className="container mx-auto max-w-4xl">
-          <div className="glass scroll-card p-8 md:p-12">
+      <section id="profile-section" className="py-16 px-4 relative overflow-hidden">
+        {/* Animated Mesh Squares Background */}
+        <div className="mesh-background absolute inset-0 pointer-events-none"></div>
+        
+        <div className="container mx-auto max-w-4xl relative z-10">
+          <div className="glass scroll-card border-3d p-8 md:p-12 bg-navy-800/40">
             <div className="flex flex-col md:flex-row items-center gap-8 mb-12">
               {/* Profile Image */}
               <div className="flex-shrink-0">
-                <div className="w-48 h-48 ninja-border rounded-full p-2 bg-gradient-to-br from-ninja-orange to-orange-600 animate-float">
-                  <div className="w-full h-full rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
-                    <img
-                      src="https://via.placeholder.com/200?text=Your+Photo"
-                      alt="Profile"
-                      className="w-full h-full object-cover"
-                    />
+                {!profileImageLoaded ? (
+                  <Shimmer type="profile" className="w-48 h-48 rounded-full" />
+                ) : (
+                  <div className="w-48 h-48 ninja-border rounded-full p-2 bg-navy-800/30 animate-float">
+                    <div className="w-full h-full rounded-full bg-navy-900 flex items-center justify-center overflow-hidden">
+                      <img
+                        src={SagarBaratePIC}
+                        alt="Profile"
+                        className="w-full h-full object-cover"
+                        onLoad={() => setProfileImageLoaded(true)}
+                      />
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
 
               {/* Headline and Description */}
               <div className="flex-1 text-center md:text-left">
-                <h2 className="text-4xl font-bold mb-4 ninja-text text-ninja-orange">
+                <h2 className="text-4xl font-bold mb-4 ninja-text text-white">
                   Full-Stack Developer
                 </h2>
-                <p className="text-lg text-gray-700 leading-relaxed">
+                <p className="text-lg text-gray-300 leading-relaxed">
                   Passionate about building scalable web applications and cloud solutions. 
                   I love turning complex problems into simple, beautiful, and intuitive solutions. 
                   When I'm not coding, you can find me exploring new technologies or contributing to open-source projects.
@@ -128,7 +156,7 @@ const Landing = () => {
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
               <Link
                 to="/projects"
-                className="scroll-card p-3 bg-gradient-to-br from-ninja-orange to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white transform transition-all duration-300"
+                className="scroll-card border-3d p-3 bg-navy-800/40 hover:bg-navy-800/60 text-white transform transition-all duration-300"
               >
                 <div className="text-center">
                   <div className="text-2xl mb-1">📦</div>
@@ -138,7 +166,7 @@ const Landing = () => {
 
               <Link
                 to="/case-studies"
-                className="scroll-card p-3 bg-gradient-to-br from-ninja-orange to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white transform transition-all duration-300"
+                className="scroll-card border-3d p-3 bg-navy-800/40 hover:bg-navy-800/60 text-white transform transition-all duration-300"
               >
                 <div className="text-center">
                   <div className="text-2xl mb-1">📜</div>
@@ -148,7 +176,7 @@ const Landing = () => {
 
               <Link
                 to="/blogs"
-                className="scroll-card p-3 bg-gradient-to-br from-ninja-orange to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white transform transition-all duration-300"
+                className="scroll-card border-3d p-3 bg-navy-800/40 hover:bg-navy-800/60 text-white transform transition-all duration-300"
               >
                 <div className="text-center">
                   <div className="text-2xl mb-1">✍️</div>
@@ -160,7 +188,7 @@ const Landing = () => {
                 href="https://linkedin.com/in/yourusername"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="scroll-card p-3 bg-gradient-to-br from-ninja-orange to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white transform transition-all duration-300"
+                className="scroll-card border-3d p-3 bg-navy-800/40 hover:bg-navy-800/60 text-white transform transition-all duration-300"
               >
                 <div className="text-center">
                   <div className="text-2xl mb-1">💼</div>
@@ -172,7 +200,7 @@ const Landing = () => {
                 href="https://github.com/yourusername"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="scroll-card p-3 bg-gradient-to-br from-ninja-black to-gray-800 hover:from-gray-800 hover:to-gray-900 text-white transform transition-all duration-300"
+                className="scroll-card border-3d p-3 bg-navy-800/40 hover:bg-navy-800/60 text-white transform transition-all duration-300"
               >
                 <div className="text-center">
                   <div className="text-2xl mb-1">⚔️</div>
@@ -182,15 +210,35 @@ const Landing = () => {
             </div>
 
             {/* Social Links */}
-            <div className="mt-12 pt-8 border-t-4 border-ninja-orange">
+            <div className="mt-12 pt-8 border-t border-orange-500/30">
               <div className="flex flex-col items-center">
-                <p className="text-gray-700 mb-4 font-semibold">Connect with me</p>
+                <p className="text-gray-300 mb-4 font-semibold">Connect with me</p>
                 <SocialLinks />
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Contact and Work Experience Section */}
+      <section className="py-16 px-4">
+        <div className="container mx-auto max-w-6xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Contact Form */}
+            <div>
+              <Contact />
+            </div>
+
+            {/* Work Experience */}
+            <div>
+              <WorkExperience />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };

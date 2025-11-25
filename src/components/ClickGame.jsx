@@ -52,29 +52,29 @@ const ClickGame = () => {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto p-6 glass rounded-2xl">
+    <div className="w-full max-w-md mx-auto p-6 glass border-3d rounded-2xl bg-navy-800/40">
       <div className="text-center mb-4">
-        <h3 className="text-xl font-bold mb-2">Click Challenge Game Share me your best score</h3>
+        <h3 className="text-xl font-bold mb-2 text-white">Click Challenge Game Share me your best score</h3>
         <div className="flex justify-between items-center mb-4">
           <div>
-            <p className="text-sm text-gray-600 dark:text-gray-400">Score</p>
-            <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">{score}</p>
+            <p className="text-sm text-gray-300">Score</p>
+            <p className="text-2xl font-bold text-dark-orange">{score}</p>
           </div>
           <div>
-            <p className="text-sm text-gray-600 dark:text-gray-400">Time</p>
-            <p className="text-2xl font-bold text-purple-600 dark:text-purple-400">{timeLeft}s</p>
+            <p className="text-sm text-gray-300">Time</p>
+            <p className="text-2xl font-bold text-dark-orange">{timeLeft}s</p>
           </div>
         </div>
       </div>
 
       <div
         ref={gameAreaRef}
-        className="relative w-full h-64 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 rounded-xl overflow-hidden border-2 border-blue-300 dark:border-blue-700"
+        className="relative w-full h-64 bg-navy-900 rounded-xl overflow-hidden border-2 border-orange-500/40"
         onClick={handleClick}
       >
         {gameActive ? (
           <div
-            className="absolute w-10 h-10 bg-red-500 rounded-full cursor-pointer shadow-lg transform transition-all duration-200 hover:scale-110 animate-pulse"
+            className="absolute w-10 h-10 bg-dark-orange rounded-full cursor-pointer shadow-lg transform transition-all duration-200 hover:scale-110 animate-pulse border-2 border-orange-500"
             style={{
               left: `${targetPosition.x}px`,
               top: `${targetPosition.y}px`,
@@ -88,7 +88,7 @@ const ClickGame = () => {
           <div className="absolute inset-0 flex items-center justify-center">
             <button
               onClick={startGame}
-              className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors shadow-lg"
+              className="px-6 py-3 kunai-button font-semibold transition-colors"
             >
               {score > 0 ? 'Play Again' : 'Start Game'}
             </button>
@@ -97,7 +97,7 @@ const ClickGame = () => {
       </div>
 
       {!gameActive && score > 0 && (
-        <p className="text-center mt-4 text-lg font-semibold text-green-600 dark:text-green-400">
+        <p className="text-center mt-4 text-lg font-semibold text-dark-orange">
           Final Score: {score}
         </p>
       )}

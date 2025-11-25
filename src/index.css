@@ -4,51 +4,160 @@
 
 @layer base {
   body {
-    @apply bg-gradient-to-br from-orange-50 via-white to-orange-100;
-    background-image: 
-      radial-gradient(circle at 20% 50%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(249, 115, 22, 0.1) 0%, transparent 50%);
+    @apply text-white;
+    background-color: #0A1929;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-position: 0 0;
   }
 }
 
 @layer utilities {
   .glass {
-    @apply bg-white/20 backdrop-blur-md border-2 border-ninja-orange/30;
+    background-color: rgba(19, 47, 76, 0.5);
+    @apply backdrop-blur-md border border-orange-500/30;
   }
   
   .text-gradient {
-    @apply bg-gradient-to-r from-ninja-orange to-orange-600 bg-clip-text text-transparent;
-    text-shadow: 2px 2px 4px rgba(249, 115, 22, 0.3);
+    @apply bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent;
   }
 
   .kunai-button {
-    @apply relative px-6 py-3 bg-ninja-orange text-white font-bold uppercase tracking-wider;
-    clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+    @apply relative px-6 py-3 text-white font-semibold uppercase tracking-wider rounded-lg border border-orange-500/50;
+    background-color: #CC5500;
     transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(204, 85, 0, 0.3);
   }
 
   .kunai-button:hover {
-    @apply bg-orange-600 scale-105;
+    @apply scale-105;
+    background-color: rgba(204, 85, 0, 0.9);
     transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(204, 85, 0, 0.5);
+    border-color: #CC5500;
   }
 
   .scroll-card {
-    @apply relative bg-white/90 border-2 border-ninja-orange;
-    clip-path: polygon(5% 0%, 95% 0%, 100% 5%, 100% 95%, 95% 100%, 5% 100%, 0% 95%, 0% 5%);
+    @apply relative border border-orange-500/30 rounded-lg;
+    background-color: rgba(19, 47, 76, 0.4);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   }
 
   .scroll-card:hover {
-    transform: translateY(-4px) scale(1.02);
+    transform: translateY(-4px);
+    @apply border-orange-500/60;
+    box-shadow: 0 8px 24px rgba(204, 85, 0, 0.4);
   }
 
   .ninja-text {
-    @apply font-bold text-ninja-black;
-    text-shadow: 3px 3px 0px rgba(249, 115, 22, 0.5), -1px -1px 0px rgba(0, 0, 0, 0.8);
-    letter-spacing: 0.1em;
+    @apply font-bold text-white;
+    letter-spacing: 0.05em;
   }
 
   .ninja-border {
-    @apply border-4 border-ninja-orange;
+    @apply border-2 border-orange-500/40;
+    box-shadow: 0 0 8px rgba(204, 85, 0, 0.3);
+  }
+
+  .dotted-background {
+    background-color: #0A1929;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-position: 0 0;
+  }
+
+  .mesh-background {
+    background-image: 
+      linear-gradient(45deg, rgba(204, 85, 0, 0.05) 1px, transparent 1px),
+      linear-gradient(-45deg, rgba(204, 85, 0, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+    background-position: 0 0;
+    animation: meshMove 20s linear infinite alternate;
+    opacity: 0.5;
+  }
+
+  /* Shimmer/Skeleton Loading */
+  .shimmer-loading {
+    position: relative;
+    overflow: hidden;
+    background: #0A1929;
+  }
+
+  .shimmer-content {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(59, 130, 246, 0.2) 50%,
+      rgba(204, 85, 0, 0.1) 100%,
+      transparent
+    );
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+
+  @keyframes meshMove {
+    from {
+      transform: translate(-50px, -50px);
+    }
+    to {
+      transform: translate(50px, 50px);
+    }
+  }
+
+  /* 3D Border Effect */
+  .border-3d {
+    border: 2px solid rgba(204, 85, 0, 0.4);
+    box-shadow: 
+      0 0 0 1px rgba(255, 255, 255, 0.1),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+      0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+
+  .border-3d:hover {
+    border-color: rgba(204, 85, 0, 0.6);
+    box-shadow: 
+      0 0 0 1px rgba(255, 255, 255, 0.15),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+      0 8px 24px rgba(204, 85, 0, 0.5);
+  }
+
+  /* Footer Link Hover */
+  .footer-link {
+    position: relative;
+    transition: color 0.3s ease;
+  }
+
+  .footer-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #CC5500;
+    transition: width 0.3s ease;
+  }
+
+  .footer-link:hover::after {
+    width: 100%;
+  }
+
+  .footer-link:hover {
+    color: #CC5500;
   }
 }
 
