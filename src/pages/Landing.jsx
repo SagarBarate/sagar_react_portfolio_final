@@ -41,59 +41,88 @@ const Landing = () => {
     img.onload = () => setProfileImageLoaded(true);
   }, []);
 
-  // Create interactive mesh squares for entire landing page
+  // Create interactive mesh squares for hero section only
   useEffect(() => {
     const meshContainer = document.getElementById('landing-full-mesh');
-    if (!meshContainer) return;
+    const meshWrapper = document.getElementById('mesh-wrapper');
+    if (!meshContainer || !meshWrapper) return;
 
     const squareSize = 50;
-    const cols = Math.ceil(window.innerWidth / squareSize) + 2;
-    const rows = Math.ceil(window.innerHeight / squareSize) + 2;
+    
+    const createSquares = () => {
+      const heroSection = document.querySelector('.hero-section');
+      if (!heroSection) return;
 
-    meshContainer.innerHTML = '';
+      const heroRect = heroSection.getBoundingClientRect();
+      const heroWidth = heroRect.width;
+      const heroHeight = heroRect.height;
 
-    for (let i = 0; i < rows; i++) {
-      for (let j = 0; j < cols; j++) {
-        const square = document.createElement('div');
-        square.className = 'mesh-square';
-        square.style.left = `${j * squareSize}px`;
-        square.style.top = `${i * squareSize}px`;
-        meshContainer.appendChild(square);
+      const cols = Math.ceil(heroWidth / squareSize) + 2;
+      const rows = Math.ceil(heroHeight / squareSize) + 2;
+
+      meshContainer.innerHTML = '';
+      // Mesh container needs to be wider to accommodate sliding animation
+      const meshWidth = (cols * squareSize);
+      meshContainer.style.width = `${meshWidth}px`;
+      meshContainer.style.height = `${heroHeight}px`;
+      
+      // Update wrapper and parent container dimensions
+      const heroMeshContainer = meshContainer.closest('.hero-mesh-container');
+      if (heroMeshContainer) {
+        heroMeshContainer.style.width = '100%';
+        heroMeshContainer.style.height = `${heroHeight}px`;
       }
-    }
+      // Wrapper should match container width for proper animation
+      meshWrapper.style.width = `${meshWidth}px`;
+      meshWrapper.style.height = `${heroHeight}px`;
 
+      for (let i = 0; i < rows; i++) {
+        for (let j = 0; j < cols; j++) {
+          const square = document.createElement('div');
+          square.className = 'mesh-square';
+          square.style.left = `${j * squareSize}px`;
+          square.style.top = `${i * squareSize}px`;
+          square.style.width = `${squareSize}px`;
+          square.style.height = `${squareSize}px`;
+          meshContainer.appendChild(square);
+        }
+      }
+    };
+
+    // Wait for DOM to be ready, then create squares
+    const initSquares = () => {
+      const heroSection = document.querySelector('.hero-section');
+      if (heroSection && heroSection.offsetHeight > 0) {
+        createSquares();
+      } else {
+        setTimeout(initSquares, 50);
+      }
+    };
+    initSquares();
+
+    // Move animation to wrapper instead of mesh container
     let position = 0;
     const animate = () => {
       position -= 0.5;
       if (position <= -squareSize) {
         position = 0;
       }
-      meshContainer.style.transform = `translateX(${position}px)`;
+      meshWrapper.style.transform = `translateX(${position}px)`;
       requestAnimationFrame(animate);
     };
     animate();
 
     // Handle window resize
     const handleResize = () => {
-      meshContainer.innerHTML = '';
-      const newCols = Math.ceil(window.innerWidth / squareSize) + 2;
-      const newRows = Math.ceil(window.innerHeight / squareSize) + 2;
-      
-      for (let i = 0; i < newRows; i++) {
-        for (let j = 0; j < newCols; j++) {
-          const square = document.createElement('div');
-          square.className = 'mesh-square';
-          square.style.left = `${j * squareSize}px`;
-          square.style.top = `${i * squareSize}px`;
-          meshContainer.appendChild(square);
-        }
-      }
+      createSquares();
     };
 
     window.addEventListener('resize', handleResize);
 
     return () => {
-      meshContainer.innerHTML = '';
+      if (meshContainer) {
+        meshContainer.innerHTML = '';
+      }
       window.removeEventListener('resize', handleResize);
     };
   }, []);
@@ -102,14 +131,16 @@ const Landing = () => {
     <div className="min-h-screen projects-mesh-background relative overflow-hidden">
       <Header />
       
-      {/* Animated Mesh Background - Full Page */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="mesh-cage"></div>
-        <div className="interactive-mesh" id="landing-full-mesh"></div>
+      {/* Animated Mesh Background - Hero Section Only */}
+      <div className="absolute top-0 left-0 right-0 z-0 hero-mesh-container">
+        <div className="mesh-cage hero-mesh-cage"></div>
+        <div className="mesh-wrapper" id="mesh-wrapper">
+          <div className="interactive-mesh" id="landing-full-mesh"></div>
+        </div>
       </div>
       
       {/* Hero Section */}
-      <section className="pt-24 pb-12 px-4 relative z-10">
+      <section className="hero-section pt-24 pb-12 px-4 relative z-10">
         <div className="container mx-auto">
           {/* Game and Profile Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12 items-start">
@@ -188,7 +219,7 @@ const Landing = () => {
       </section>
 
       {/* Profile Section */}
-      <section id="profile-section" className="py-16 px-4 relative overflow-hidden">
+      <section id="profile-section" className="py-16 px-4 relative overflow-hidden z-10 bg-navy-900">
         <div className="container mx-auto max-w-4xl relative z-10">
           <div className="glass scroll-card border-3d p-8 md:p-12 bg-navy-800/40">
             <div className="flex flex-col md:flex-row items-center gap-8 mb-12">
@@ -292,7 +323,7 @@ const Landing = () => {
       </section>
 
       {/* Contact and Work Experience Section */}
-      <section className="py-16 px-4 relative overflow-hidden">
+      <section className="py-16 px-4 relative overflow-hidden z-10 bg-navy-900">
         <div className="container mx-auto max-w-6xl relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
@@ -309,7 +340,9 @@ const Landing = () => {
       </section>
 
       {/* Footer */}
-      <Footer />
+      <div className="relative z-10">
+        <Footer />
+      </div>
     </div>
   );
 };

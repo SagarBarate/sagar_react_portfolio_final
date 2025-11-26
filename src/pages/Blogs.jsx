@@ -30,7 +30,7 @@ const Blogs = () => {
               <Link
                 key={blog.id}
                 to={`/blogs/${blog.id}`}
-                className="block scroll-card border-3d overflow-hidden transform transition-all duration-300 bg-navy-800/40 hover:bg-navy-800/60"
+                className="block scroll-card border-2 border-white/50 overflow-hidden transform transition-all duration-300 bg-navy-800/40 hover:bg-navy-800/60 hover:border-white/70"
               >
                 <div className="p-6 md:p-8">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">

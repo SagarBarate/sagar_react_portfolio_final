@@ -36,7 +36,7 @@ const CaseStudies = () => {
             {caseStudies.map((study) => (
               <div
                 key={study.id}
-                className="scroll-card border-3d overflow-hidden transform transition-all duration-300 bg-navy-800/40"
+                className="scroll-card border-2 border-white/50 overflow-hidden transform transition-all duration-300 bg-navy-800/40 hover:border-white/70"
               >
                 <div className="md:flex">
                   <div className="md:w-1/3">

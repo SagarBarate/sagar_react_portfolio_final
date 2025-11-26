@@ -19,27 +19,43 @@ const About = () => {
   }, []);
 
   return (
-    <div className="min-h-screen dotted-background">
+    <div className="min-h-screen relative overflow-hidden" style={{ backgroundColor: '#0A1929' }}>
+      {/* Static Solid Dots Background */}
+      <div className="absolute inset-0 z-0" style={{
+        backgroundImage: 'radial-gradient(circle, rgba(255, 255, 255, 0.2) 2px, transparent 2px)',
+        backgroundSize: '30px 30px',
+        backgroundPosition: '0 0',
+        backgroundRepeat: 'repeat',
+      }}></div>
+      
       <Header />
       
-      <div className="pt-24 pb-16 px-4">
+      <div className="pt-24 pb-16 px-4 relative z-10">
         <div className="container mx-auto max-w-6xl">
-          <div className="glass scroll-card border-3d p-8 md:p-12">
+          <div className="glass scroll-card border-2 border-white/50 p-8 md:p-12 bg-navy-800/40">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-              {/* Large Profile Image - Takes almost half the page */}
-              <div className="flex justify-center md:justify-start">
-                {!profileImageLoaded ? (
-                  <Shimmer type="profile" className="w-full max-w-md h-96 rounded-lg" />
-                ) : (
-                  <div className="w-full max-w-md h-96 rounded-lg border-3d overflow-hidden bg-navy-900">
-                    <img
-                      src={SagarBaratePIC}
-                      alt="Profile"
-                      className="w-full h-full object-cover"
-                      onLoad={() => setProfileImageLoaded(true)}
-                    />
-                  </div>
-                )}
+              {/* Profile Photo - Circular with Orange Background matching Landing page */}
+              <div className="flex justify-center md:justify-start items-center">
+                <div className="relative w-64 h-64 md:w-80 md:h-80 flex items-center justify-center">
+                  {/* Orange Background Circle */}
+                  <div className="absolute inset-8 rounded-full bg-gradient-to-br from-dark-orange/80 to-ninja-orange/80 z-10 shadow-2xl"></div>
+                  
+                  {/* Profile Image Container */}
+                  {!profileImageLoaded ? (
+                    <div className="absolute inset-10 rounded-full overflow-hidden z-20">
+                      <Shimmer type="profile" className="w-full h-full rounded-full" />
+                    </div>
+                  ) : (
+                    <div className="absolute inset-10 rounded-full profile-image-container overflow-hidden z-20">
+                      <img
+                        src={SagarBaratePIC}
+                        alt="Profile"
+                        className="relative z-10 w-full h-full object-cover rounded-full border-2 border-white shadow-xl"
+                        onLoad={() => setProfileImageLoaded(true)}
+                      />
+                    </div>
+                  )}
+                </div>
               </div>
 
               {/* Introduction */}
