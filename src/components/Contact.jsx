@@ -38,10 +38,24 @@ const Contact = () => {
 
     try {
       // EmailJS configuration
-      // You'll need to replace these with your actual EmailJS credentials
-      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'your_service_id';
-      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'your_template_id';
-      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'your_public_key';
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      // Validate EmailJS configuration
+      if (!serviceId || !templateId || !publicKey || 
+          serviceId === 'your_service_id' || 
+          templateId === 'your_template_id' || 
+          publicKey === 'your_public_key') {
+        showToast('EmailJS is not configured. Please set up environment variables.', 'error');
+        console.error('EmailJS Configuration Error:', {
+          serviceId: serviceId ? 'Set' : 'Missing',
+          templateId: templateId ? 'Set' : 'Missing',
+          publicKey: publicKey ? 'Set' : 'Missing'
+        });
+        setIsSubmitting(false);
+        return;
+      }
 
       await emailjs.send(
         serviceId,
@@ -58,7 +72,8 @@ const Contact = () => {
       setFormData({ name: '', email: '', message: '' });
     } catch (error) {
       console.error('EmailJS error:', error);
-      showToast('Failed to send message. Please try again.', 'error');
+      const errorMessage = error.text || error.message || 'Failed to send message. Please try again.';
+      showToast(`Failed to send message: ${errorMessage}`, 'error');
     } finally {
       setIsSubmitting(false);
     }

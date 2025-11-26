@@ -179,17 +179,17 @@ const Landing = () => {
 
               {/* Profile Photo - Centered with Orange Background */}
               <div className="flex justify-center items-center w-full my-8">
-                <div className="relative w-64 h-64 md:w-80 md:h-80 flex items-center justify-center">
+                <div className="relative w-72 h-72 md:w-[22rem] md:h-[22rem] lg:w-96 lg:h-96 flex items-center justify-center">
                   {/* Orange Background Circle */}
-                  <div className="absolute inset-8 rounded-full bg-gradient-to-br from-dark-orange/80 to-ninja-orange/80 z-10 shadow-2xl"></div>
+                  <div className="absolute inset-6 md:inset-7 rounded-full bg-gradient-to-br from-dark-orange/80 to-ninja-orange/80 z-10 shadow-2xl"></div>
                   
                   {/* Profile Image Container */}
                   {!profileImageLoaded ? (
-                    <div className="absolute inset-10 rounded-full overflow-hidden z-20">
+                    <div className="absolute inset-8 md:inset-9 rounded-full overflow-hidden z-20">
                       <Shimmer type="profile" className="w-full h-full rounded-full" />
                     </div>
                   ) : (
-                    <div className="absolute inset-10 rounded-full profile-image-container overflow-hidden z-20">
+                    <div className="absolute inset-8 md:inset-9 rounded-full profile-image-container overflow-hidden z-20">
                       <img
                         src={SagarBaratePIC}
                         alt="Profile"

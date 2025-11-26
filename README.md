@@ -64,12 +64,25 @@ SagarPortfolio/
    npm install
    ```
 
-3. **Start the development server:**
+3. **Set up EmailJS (for contact forms):**
+   - Sign up for a free account at [EmailJS](https://www.emailjs.com/)
+   - Create an email service (Gmail, Outlook, etc.)
+   - Create an email template with these variables: `{{from_name}}`, `{{from_email}}`, `{{message}}`
+   - Get your Public Key from Account > API Keys
+   - Create a `.env` file in the root directory:
+     ```env
+     VITE_EMAILJS_SERVICE_ID=service_lbni2jp
+     VITE_EMAILJS_TEMPLATE_ID=your_template_id_here
+     VITE_EMAILJS_PUBLIC_KEY=your_public_key_here
+     ```
+   - Replace the template ID and public key with your actual EmailJS credentials
+
+4. **Start the development server:**
    ```bash
    npm run dev
    ```
 
-4. **Open your browser:**
+5. **Open your browser:**
    Navigate to `http://localhost:5173` (or the port shown in your terminal)
 
 ## 📦 Build for Production
@@ -147,6 +160,7 @@ The project uses Tailwind CSS for all styling. Key features:
 - Update all social media links with your profiles
 - Customize the color scheme in `tailwind.config.js` if needed
 - Add your actual project images to the `src/assets/` directory
+- **Important**: Make sure to set up EmailJS environment variables in `.env` file for the contact forms to work properly
 
 ## 🚀 Deployment
 
