@@ -6,7 +6,6 @@ import Blogs from '../pages/Blogs';
 import BlogPost from '../pages/BlogPost';
 import Skills from '../pages/Skills';
 import CaseStudies from '../pages/CaseStudies';
-import LetsConnect from '../pages/LetsConnect';
 
 const router = createBrowserRouter([
   {
@@ -36,11 +35,7 @@ const router = createBrowserRouter([
   {
     path: '/case-studies',
     element: <CaseStudies />,
-  },
-  {
-    path: '/lets-connect',
-    element: <LetsConnect />,
-  },
+  }
 ]);
 
 export default router;

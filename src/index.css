@@ -67,6 +67,65 @@
     background-position: 0 0;
   }
 
+  /* Projects Mesh Background - Cage/Wired Mesh Effect */
+  .projects-mesh-background {
+    background-color: #0A1929;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .mesh-cage {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: 0 0;
+    animation: meshMoveLeftRight 20s linear infinite;
+    opacity: 0.6;
+  }
+
+  @keyframes meshMoveLeftRight {
+    0% {
+      background-position: -50px 0;
+    }
+    100% {
+      background-position: 0 0;
+    }
+  }
+
+  /* Project Card with White Border */
+  .project-card-white-border {
+    @apply relative border-2 border-white/30 rounded-lg;
+    background-color: rgba(19, 47, 76, 0.4);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .project-card-white-border:hover {
+    transform: translateY(-4px);
+    @apply border-white/60;
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
+  }
+
+  /* Button with White Border */
+  .kunai-button-white {
+    @apply relative px-6 py-3 text-white font-semibold uppercase tracking-wider rounded-lg border-2 border-white/50;
+    background-color: rgba(19, 47, 76, 0.6);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .kunai-button-white:hover {
+    @apply scale-105;
+    background-color: rgba(19, 47, 76, 0.8);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.8);
+  }
+
   .mesh-background {
     background-image: 
       linear-gradient(45deg, rgba(204, 85, 0, 0.05) 1px, transparent 1px),

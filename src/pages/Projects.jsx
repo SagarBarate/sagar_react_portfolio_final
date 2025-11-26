@@ -31,12 +31,12 @@ const Projects = () => {
   }, []);
 
   return (
-    <div className="min-h-screen dotted-background relative overflow-hidden grid-hover-area">
+    <div className="min-h-screen projects-mesh-background relative overflow-hidden">
       <Header />
       
-      {/* Animated Grid Background - Darker */}
+      {/* Animated Mesh Background */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="animated-grid"></div>
+        <div className="mesh-cage"></div>
       </div>
       
       <div className="pt-24 pb-16 px-4 relative z-10">
@@ -50,12 +50,12 @@ const Projects = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project) => (
               <div
                 key={project.id}
                 onClick={() => handleProjectClick(project)}
-                className="project-card overflow-hidden cursor-pointer transform transition-all duration-300 bg-navy-800/40 hover:bg-navy-800/60"
+                className="project-card-white-border overflow-hidden cursor-pointer transform transition-all duration-300 bg-navy-800/40"
               >
                 <div className="relative h-48 overflow-hidden">
                   {!imagesLoaded[project.id] ? (
@@ -84,13 +84,13 @@ const Projects = () => {
                     {project.techStack.slice(0, 3).map((tech, index) => (
                       <span
                         key={index}
-                        className="px-2 py-1 bg-navy-900/60 text-white border border-orange-500/40 text-xs font-bold uppercase"
+                        className="px-2 py-1 bg-navy-900/60 text-white border border-white/40 text-xs font-bold uppercase"
                       >
                         {tech}
                       </span>
                     ))}
                     {project.techStack.length > 3 && (
-                      <span className="px-2 py-1 bg-navy-900/40 text-gray-300 border border-orange-500/20 text-xs font-bold">
+                      <span className="px-2 py-1 bg-navy-900/40 text-gray-300 border border-white/20 text-xs font-bold">
                         +{project.techStack.length - 3}
                       </span>
                     )}
@@ -103,7 +103,7 @@ const Projects = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
-                        className="flex-1 kunai-button text-sm"
+                        className="flex-1 kunai-button-white text-sm"
                       >
                         Live
                       </a>
@@ -114,7 +114,7 @@ const Projects = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
-                        className="flex-1 kunai-button text-sm bg-navy-800/60 hover:bg-navy-800/80 text-white border border-orange-500/40"
+                        className="flex-1 kunai-button-white text-sm bg-navy-800/60 hover:bg-navy-800/80 text-white border border-white/40"
                       >
                         Code
                       </a>
@@ -132,11 +132,7 @@ const Projects = () => {
         isOpen={isModalOpen}
         onClose={closeModal}
       />
-      
-      {/* Separate Footer Section */}
-      <div className="mt-16 pt-8 border-t border-white/10">
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 };
