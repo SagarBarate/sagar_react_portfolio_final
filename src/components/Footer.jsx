@@ -1,18 +1,19 @@
 import { Link } from 'react-router-dom';
+import SagarBarateCV from '../assets/SagarBarateCV.pdf';
 
 const Footer = () => {
   const handleDownloadCV = () => {
     // Create a link element and trigger download
     const link = document.createElement('a');
-    link.href = '/assets/Sagar_Barate_CV.pdf';
-    link.download = 'Sagar_Barate_CV.pdf';
+    link.href = SagarBarateCV;
+    link.download = 'SagarBarateCV.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
   return (
-    <footer className="border-t border-orange-500/30 py-8 px-4 bg-navy-900/50">
+    <footer className="border-t-2 border-white/30 py-8 px-4 bg-navy-900/50">
       <div className="container mx-auto max-w-6xl">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-white/60">

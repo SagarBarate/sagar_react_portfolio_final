@@ -14,31 +14,48 @@ const Skills = () => {
   const getLevelColor = (level) => {
     switch (level) {
       case 'Advanced':
-        return 'bg-dark-orange';
+        return 'bg-white';
       case 'Intermediate':
-        return 'bg-orange-600';
+        return 'bg-gray-400';
       case 'Beginner':
-        return 'bg-orange-500/70';
+        return 'bg-gray-500';
       default:
         return 'bg-gray-500';
     }
   };
 
   const skillCategories = [
-    { title: 'Frontend', key: 'frontend', icon: '🎨' },
-    { title: 'Backend', key: 'backend', icon: '⚙️' },
-    { title: 'Cloud', key: 'cloud', icon: '☁️' },
-    { title: 'DevOps', key: 'devops', icon: '🚀' },
-    { title: 'Tools', key: 'tools', icon: '🛠️' },
-    { title: 'Databases', key: 'databases', icon: '💾' },
-    { title: 'Programming Languages', key: 'languages', icon: '💻' }
+    { 
+      title: 'Languages', 
+      key: 'languages', 
+      icon: '💻',
+      description: 'Programming languages I work with'
+    },
+    { 
+      title: 'Frameworks & Technology', 
+      key: 'frameworks', 
+      icon: '⚙️',
+      description: 'Frameworks and technologies I use'
+    },
+    { 
+      title: 'DevOps & Cloud', 
+      key: 'devopsCloud', 
+      icon: '☁️',
+      description: 'DevOps tools and cloud platforms'
+    },
+    { 
+      title: 'Tools & Utilities', 
+      key: 'toolsUtilities', 
+      icon: '🛠️',
+      description: 'Development tools and utilities'
+    }
   ];
 
   return (
-    <div className="min-h-screen dotted-background">
+    <div className="min-h-screen skills-background relative overflow-hidden">
       <Header />
       
-      <div className="pt-24 pb-16 px-4">
+      <div className="pt-24 pb-16 px-4 relative z-10">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12">
             <h1 className="text-5xl md:text-6xl font-bold mb-4 ninja-text">
@@ -50,51 +67,58 @@ const Skills = () => {
           </div>
 
           {!skillsLoaded ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {skillCategories.map((category) => (
-                <Shimmer key={category.key} type="card" className="h-64" />
+                <Shimmer key={category.key} type="card" className="h-96" />
               ))}
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {skillCategories.map((category) => (
                 <div
                   key={category.key}
-                  className="scroll-card border-3d p-6 transform transition-all duration-300 bg-navy-800/40"
+                  className="project-card overflow-hidden transform transition-all duration-300 bg-navy-800/40 hover:bg-navy-800/60"
                 >
-                  <div className="flex items-center gap-3 mb-6">
-                    <span className="text-3xl">{category.icon}</span>
-                    <h2 className="text-2xl font-bold text-white">
-                      {category.title}
-                    </h2>
-                  </div>
-                  
-                  <div className="space-y-4">
-                    {skills[category.key]?.map((skill, index) => (
-                      <div key={index}>
-                        <div className="flex items-center justify-between mb-2">
-                          <span className="font-semibold text-white">
-                            {skill.name}
-                          </span>
-                          <span className="text-sm text-orange-400">
-                            {skill.level}
-                          </span>
-                        </div>
-                        <div className="w-full bg-navy-900/60 border border-orange-500/30 rounded-full h-3">
-                          <div
-                            className={`h-full rounded-full transition-all duration-500 ${getLevelColor(skill.level)}`}
-                            style={{
-                              width:
-                                skill.level === 'Advanced'
-                                  ? '90%'
-                                  : skill.level === 'Intermediate'
-                                  ? '70%'
-                                  : '50%'
-                            }}
-                          />
-                        </div>
+                  <div className="p-6 md:p-8">
+                    <div className="flex items-center gap-3 mb-6">
+                      <span className="text-3xl">{category.icon}</span>
+                      <div>
+                        <h2 className="text-2xl font-bold text-white">
+                          {category.title}
+                        </h2>
+                        <p className="text-sm text-gray-400 mt-1">
+                          {category.description}
+                        </p>
                       </div>
-                    ))}
+                    </div>
+                    
+                    <div className="space-y-4">
+                      {skills[category.key]?.map((skill, index) => (
+                        <div key={index}>
+                          <div className="flex items-center justify-between mb-2">
+                            <span className="font-semibold text-white">
+                              {skill.name}
+                            </span>
+                            <div className="flex items-center gap-2">
+                              <span className="text-sm text-white">
+                                {skill.level}
+                              </span>
+                              <span className="text-xs text-gray-400">
+                                {skill.proficiency}%
+                              </span>
+                            </div>
+                          </div>
+                          <div className="w-full bg-navy-900/60 border border-white/30 rounded-full h-3">
+                            <div
+                              className={`h-full rounded-full transition-all duration-500 ${getLevelColor(skill.level)}`}
+                              style={{
+                                width: `${skill.proficiency}%`
+                              }}
+                            />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               ))}
@@ -108,4 +132,3 @@ const Skills = () => {
 };
 
 export default Skills;
-

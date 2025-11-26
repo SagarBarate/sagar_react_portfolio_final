@@ -84,7 +84,7 @@ const CaseStudies = () => {
                       </ul>
                     </div>
 
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2 mb-4">
                       {study.techStack.map((tech, index) => (
                         <span
                           key={index}
@@ -94,6 +94,31 @@ const CaseStudies = () => {
                         </span>
                       ))}
                     </div>
+
+                    {(study.liveLink || study.githubLink) && (
+                      <div className="flex gap-4">
+                        {study.liveLink && (
+                          <a
+                            href={study.liveLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex-1 kunai-button text-center"
+                          >
+                            Live Demo
+                          </a>
+                        )}
+                        {study.githubLink && (
+                          <a
+                            href={study.githubLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex-1 kunai-button text-center bg-navy-800/60 hover:bg-navy-800/80 text-white border border-orange-500/40"
+                          >
+                            GitHub
+                          </a>
+                        )}
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

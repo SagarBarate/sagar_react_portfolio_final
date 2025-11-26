@@ -1,59 +1,73 @@
-// Sample projects data - replace with your actual projects
+// Projects data
+import CleanNFTImage from '../assets/CleanNFT.png';
+import OpentelemetryImage from '../assets/Opentelemetry.png';
+import WeekendlyImage from '../assets/Weekendly.png';
+import MicroserviceCICDImage from '../assets/MicroserviceCICD.png';
 
 export const projects = [
   {
     id: 1,
-    title: "E-Commerce Platform",
-    description: "A full-stack e-commerce solution with payment integration, user authentication, and admin dashboard. Built with modern technologies for scalability and performance.",
-    techStack: ["React", "Node.js", "MongoDB", "Stripe", "Express"],
-    liveLink: "https://example.com",
-    githubLink: "https://github.com/example/ecommerce",
-    image: "https://via.placeholder.com/400x300?text=E-Commerce+Platform"
+    title: "CleanNFT",
+    description: "Blockchain-based recycling reward system with mobile app, admin portal, and IoT integration. Users scan QR codes to earn NFT badges for recycling activities.",
+    techStack: ["React Native", "Node.js", "Solidity", "AWS Lambda", "IoT", "QR Code scanning"],
+    highlights: [
+      "Developed blockchain-based recycling reward system with mobile app + admin portal + IoT integration",
+      "Users scan QR codes to earn NFT badges",
+      "Built using React Native, Node.js, and Solidity smart contracts",
+      "Admins manage users and track recycling statistics",
+      "Integrated AWS Lambda for serverless backend execution"
+    ],
+    liveLink: "https://cleannft.netlify.app/",
+    githubLink: null,
+    image: CleanNFTImage
   },
   {
     id: 2,
-    title: "Task Management App",
-    description: "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
-    techStack: ["React", "Firebase", "Tailwind CSS", "React DnD"],
-    liveLink: "https://example.com",
-    githubLink: "https://github.com/example/taskapp",
-    image: "https://via.placeholder.com/400x300?text=Task+Management"
+    title: "Opentelemetry DevOps Project",
+    description: "Deployed microservices-based e-commerce platform using 15+ services with CI/CD, auto-scaling, service discovery, and comprehensive observability via OpenTelemetry.",
+    techStack: ["AWS", "Kubernetes", "Docker", "GitHub Actions", "Go", "Node.js", "Python", "Java", "Rust", "C#", "Microservices"],
+    highlights: [
+      "Deployed microservices-based e-commerce platform using 15+ services",
+      "Implemented CI/CD with GitHub Actions for automated testing & deployments",
+      "Designed scalable cloud-native architecture with auto-scaling, service discovery & load balancing",
+      "Integrated logging and tracing via OpenTelemetry",
+      "Used multi-language microservices: Go, Node.js, Python, Java, Rust, C#"
+    ],
+    liveLink: null,
+    githubLink: "https://github.com/SagarBarate/enterprise-microservices-devops-platform",
+    image: OpentelemetryImage
   },
   {
     id: 3,
-    title: "Weather Dashboard",
-    description: "A beautiful weather dashboard that displays current weather conditions, forecasts, and interactive maps. Includes location-based weather updates.",
-    techStack: ["React", "OpenWeather API", "Chart.js", "Tailwind CSS"],
-    liveLink: "https://example.com",
-    githubLink: "https://github.com/example/weather",
-    image: "https://via.placeholder.com/400x300?text=Weather+Dashboard"
+    title: "Microservice CI/CD Pipeline",
+    description: "Full CI/CD pipeline for a shipment-service microservice with automated build, test, code quality scans, and infrastructure provisioning using Ansible.",
+    techStack: ["Jenkins", "Maven", "SonarQube", "Ansible", "AWS EC2", "Java"],
+    highlights: [
+      "Implemented a full CI/CD pipeline for a shipment-service microservice",
+      "Automated GitHub checkout → Maven build/test → SonarQube scans → artifact archive",
+      "Provisioned infrastructure using Ansible playbooks",
+      "Deployed Java microservice on AWS EC2",
+      "Ensured idempotent server setup and automated service startup"
+    ],
+    liveLink: null,
+    githubLink: "https://github.com/sagarbarate/microservice-ci-cd",
+    image: MicroserviceCICDImage
   },
   {
     id: 4,
-    title: "Social Media Analytics",
-    description: "Analytics platform for social media metrics with data visualization, trend analysis, and automated reporting features.",
-    techStack: ["React", "Python", "Django", "PostgreSQL", "D3.js"],
-    liveLink: "https://example.com",
-    githubLink: "https://github.com/example/analytics",
-    image: "https://via.placeholder.com/400x300?text=Analytics+Platform"
-  },
-  {
-    id: 5,
-    title: "Portfolio Website",
-    description: "A responsive portfolio website showcasing projects, skills, and blog posts. Built with modern design principles and smooth animations.",
-    techStack: ["React", "Vite", "Tailwind CSS", "React Router"],
-    liveLink: "https://example.com",
-    githubLink: "https://github.com/example/portfolio",
-    image: "https://via.placeholder.com/400x300?text=Portfolio+Website"
-  },
-  {
-    id: 6,
-    title: "Chat Application",
-    description: "Real-time chat application with multiple rooms, file sharing, and emoji support. Built with WebSocket for instant messaging.",
-    techStack: ["React", "Socket.io", "Node.js", "Express", "MongoDB"],
-    liveLink: "https://example.com",
-    githubLink: "https://github.com/example/chat",
-    image: "https://via.placeholder.com/400x300?text=Chat+App"
+    title: "Weekend Planning Web App",
+    description: "Highly-available MERN stack app with distributed microservices and fault-tolerant serverless architecture on AWS. Features automated scaling and intelligent load-balancing.",
+    techStack: ["MERN", "AWS Serverless", "Lambda", "API Gateway", "DynamoDB"],
+    highlights: [
+      "Architected a highly-available MERN stack app with distributed microservices",
+      "Built fault-tolerant serverless architecture on AWS",
+      "Implemented automated scaling and intelligent load-balancing",
+      "Led testing, code review, and CI/CD pipeline setup",
+      "Ensured optimized performance and user experience"
+    ],
+    liveLink: "https://planweekendly.netlify.app/",
+    githubLink: null,
+    image: WeekendlyImage
   }
 ];
 

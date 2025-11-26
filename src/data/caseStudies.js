@@ -1,50 +1,81 @@
-// Case studies data
+// Case studies data - using projects data
+import CleanNFTImage from '../assets/CleanNFT.png';
+import OpentelemetryImage from '../assets/Opentelemetry.png';
+import WeekendlyImage from '../assets/Weekendly.png';
+import MicroserviceCICDImage from '../assets/MicroserviceCICD.png';
 
 export const caseStudies = [
   {
     id: 1,
-    title: "E-Commerce Platform Migration",
-    description: "Led the migration of a legacy e-commerce platform to a modern microservices architecture, resulting in 40% performance improvement and 60% reduction in infrastructure costs.",
-    challenge: "The existing monolithic application was struggling with scalability and high maintenance costs.",
-    solution: "Designed and implemented a microservices architecture using React, Node.js, and AWS services.",
+    title: "CleanNFT",
+    description: "Blockchain-based recycling reward system with mobile app, admin portal, and IoT integration. Users scan QR codes to earn NFT badges for recycling activities.",
+    challenge: "Creating an innovative solution to incentivize recycling through blockchain technology while ensuring seamless user experience across mobile and web platforms.",
+    solution: "Developed a comprehensive system using React Native for mobile app, Node.js for backend, Solidity for smart contracts, and AWS Lambda for serverless execution. Integrated IoT devices and QR code scanning for seamless user interaction.",
     results: [
-      "40% improvement in page load times",
-      "60% reduction in infrastructure costs",
-      "99.9% uptime achieved",
-      "Improved developer productivity by 50%"
+      "Developed blockchain-based recycling reward system with mobile app + admin portal + IoT integration",
+      "Users scan QR codes to earn NFT badges",
+      "Built using React Native, Node.js, and Solidity smart contracts",
+      "Admins manage users and track recycling statistics",
+      "Integrated AWS Lambda for serverless backend execution"
     ],
-    techStack: ["React", "Node.js", "AWS", "Docker", "Kubernetes"],
-    image: "https://via.placeholder.com/600x400?text=E-Commerce+Migration"
+    techStack: ["React Native", "Node.js", "Solidity", "AWS Lambda", "IoT", "QR Code scanning"],
+    image: CleanNFTImage,
+    liveLink: "https://cleannft.netlify.app/",
+    githubLink: null
   },
   {
     id: 2,
-    title: "Real-time Analytics Dashboard",
-    description: "Built a real-time analytics dashboard for a SaaS company that processes millions of events daily, providing instant insights to stakeholders.",
-    challenge: "Need for real-time data visualization with minimal latency for business-critical decisions.",
-    solution: "Implemented a real-time data pipeline using WebSockets, Redis, and React with optimized rendering.",
+    title: "Opentelemetry DevOps Project",
+    description: "Deployed microservices-based e-commerce platform using 15+ services with CI/CD, auto-scaling, service discovery, and comprehensive observability via OpenTelemetry.",
+    challenge: "Building a scalable, observable microservices architecture that can handle high traffic while maintaining visibility into system performance and debugging capabilities.",
+    solution: "Designed and implemented a cloud-native architecture using Kubernetes, Docker, and GitHub Actions for CI/CD. Integrated OpenTelemetry for comprehensive logging and tracing across multiple programming languages.",
     results: [
-      "Real-time data updates with <100ms latency",
-      "Handles 1M+ events per day",
-      "99.5% accuracy in data processing",
-      "Reduced decision-making time by 70%"
+      "Deployed microservices-based e-commerce platform using 15+ services",
+      "Implemented CI/CD with GitHub Actions for automated testing & deployments",
+      "Designed scalable cloud-native architecture with auto-scaling, service discovery & load balancing",
+      "Integrated logging and tracing via OpenTelemetry",
+      "Used multi-language microservices: Go, Node.js, Python, Java, Rust, C#"
     ],
-    techStack: ["React", "WebSockets", "Redis", "Node.js", "D3.js"],
-    image: "https://via.placeholder.com/600x400?text=Analytics+Dashboard"
+    techStack: ["AWS", "Kubernetes", "Docker", "GitHub Actions", "Go", "Node.js", "Python", "Java", "Rust", "C#", "Microservices"],
+    image: OpentelemetryImage,
+    liveLink: null,
+    githubLink: "https://github.com/SagarBarate/enterprise-microservices-devops-platform"
   },
   {
     id: 3,
-    title: "Mobile App Backend API",
-    description: "Developed a scalable REST API backend for a mobile application serving 100K+ users with high availability and performance.",
-    challenge: "Building a backend that can handle high traffic, maintain data consistency, and provide excellent user experience.",
-    solution: "Created a RESTful API using Node.js, Express, MongoDB with caching, load balancing, and auto-scaling.",
+    title: "Microservice CI/CD Pipeline",
+    description: "Full CI/CD pipeline for a shipment-service microservice with automated build, test, code quality scans, and infrastructure provisioning using Ansible.",
+    challenge: "Automating the entire software delivery lifecycle from code commit to production deployment while ensuring code quality and infrastructure consistency.",
+    solution: "Implemented a comprehensive CI/CD pipeline using Jenkins, Maven, SonarQube, and Ansible. Automated infrastructure provisioning and deployment on AWS EC2 with idempotent configurations.",
     results: [
-      "API response time <200ms (p95)",
-      "99.99% uptime",
-      "Successfully handles 10K+ concurrent users",
-      "Zero data loss incidents"
+      "Implemented a full CI/CD pipeline for a shipment-service microservice",
+      "Automated GitHub checkout → Maven build/test → SonarQube scans → artifact archive",
+      "Provisioned infrastructure using Ansible playbooks",
+      "Deployed Java microservice on AWS EC2",
+      "Ensured idempotent server setup and automated service startup"
     ],
-    techStack: ["Node.js", "Express", "MongoDB", "Redis", "AWS"],
-    image: "https://via.placeholder.com/600x400?text=API+Backend"
+    techStack: ["Jenkins", "Maven", "SonarQube", "Ansible", "AWS EC2", "Java"],
+    image: MicroserviceCICDImage,
+    liveLink: null,
+    githubLink: "https://github.com/sagarbarate/microservice-ci-cd"
+  },
+  {
+    id: 4,
+    title: "Weekend Planning Web App",
+    description: "Highly-available MERN stack app with distributed microservices and fault-tolerant serverless architecture on AWS. Features automated scaling and intelligent load-balancing.",
+    challenge: "Building a highly available web application that can scale automatically based on demand while maintaining fault tolerance and optimal performance.",
+    solution: "Architected a serverless MERN stack application using AWS Lambda, API Gateway, and DynamoDB. Implemented distributed microservices with automated scaling and intelligent load balancing.",
+    results: [
+      "Architected a highly-available MERN stack app with distributed microservices",
+      "Built fault-tolerant serverless architecture on AWS",
+      "Implemented automated scaling and intelligent load-balancing",
+      "Led testing, code review, and CI/CD pipeline setup",
+      "Ensured optimized performance and user experience"
+    ],
+    techStack: ["MERN", "AWS Serverless", "Lambda", "API Gateway", "DynamoDB"],
+    image: WeekendlyImage,
+    liveLink: "https://planweekendly.netlify.app/",
+    githubLink: null
   }
 ];
 

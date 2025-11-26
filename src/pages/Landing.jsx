@@ -56,16 +56,16 @@ const Landing = () => {
             </div>
 
             {/* Right Side: Hero Text + Profile Picture */}
-            <div className="order-1 lg:order-2 flex flex-col lg:pl-8">
-              {/* Hero Text - Above Profile Picture */}
-              <div className="text-center md:text-left mb-6 md:ml-4">
-                <h1 className="text-3xl md:text-5xl font-bold mb-6">
-                  <span className="ninja-text">Hello, I'm </span>
+            <div className="order-1 lg:order-2 flex flex-col items-center lg:items-start lg:pl-8">
+              {/* Centered Hero Text with Introduction */}
+              <div className="text-center mb-8 w-full">
+                <h1 className="text-4xl md:text-6xl font-bold mb-4">
+                  <span className="ninja-text">Hello, I am </span>
                   <span className="text-gradient">Sagar</span>
                 </h1>
                 
                 {/* Animated Code → Cloud Text */}
-                <div className="flex items-center justify-center md:justify-start gap-3 mb-6 text-3xl md:text-5xl font-mono md:ml-2">
+                <div className="flex items-center justify-center gap-3 mb-4 text-3xl md:text-5xl font-mono">
                   <span className="ninja-text">{codeSnippets[0]}</span>
                   <span className="text-white animate-pulse text-4xl md:text-6xl">
                     {codeSnippets[1]}
@@ -75,23 +75,34 @@ const Landing = () => {
                   </span>
                 </div>
 
-                <p className="text-xl md:text-2xl text-gray-300 font-semibold md:ml-2">
-                  Full-Stack Developer | Cloud Enthusiast | Problem Solver
+                <p className="text-xl md:text-2xl text-gray-300 font-semibold mb-2">
+                  Full Stack Developer 🎮
+                </p>
+                <p className="text-lg md:text-xl text-gray-400">
+                  Cloud Enthusiast | Problem Solver
                 </p>
               </div>
 
-              {/* Profile Photo - Below Hero Text with Shimmer */}
-              <div className="flex justify-center md:justify-end lg:justify-end">
-                <div className="relative w-full max-w-sm">
+              {/* Profile Photo - Centered with Orange Background */}
+              <div className="flex justify-center items-center w-full my-8">
+                <div className="relative w-64 h-64 md:w-80 md:h-80 flex items-center justify-center">
+                  {/* Orange Background Circle */}
+                  <div className="absolute inset-8 rounded-full bg-gradient-to-br from-dark-orange/80 to-ninja-orange/80 z-10 shadow-2xl"></div>
+                  
+                  {/* Profile Image Container */}
                   {!profileImageLoaded ? (
-                    <Shimmer type="profile" className="w-full max-w-sm h-100 rounded-lg" />
+                    <div className="absolute inset-10 rounded-full overflow-hidden z-20">
+                      <Shimmer type="profile" className="w-full h-full rounded-full" />
+                    </div>
                   ) : (
-                    <img
-                      src={SagarBaratePIC}
-                      alt="Profile"
-                      className="w-full max-w-sm h-auto object-contain rounded-lg"
-                      onLoad={() => setProfileImageLoaded(true)}
-                    />
+                    <div className="absolute inset-10 rounded-full profile-image-container overflow-hidden z-20">
+                      <img
+                        src={SagarBaratePIC}
+                        alt="Profile"
+                        className="relative z-10 w-full h-full object-cover rounded-full border-1.2 border-white shadow-1xl"
+                        onLoad={() => setProfileImageLoaded(true)}
+                      />
+                    </div>
                   )}
                 </div>
               </div>
@@ -185,7 +196,7 @@ const Landing = () => {
               </Link>
 
               <a
-                href="https://linkedin.com/in/yourusername"
+                href="https://www.linkedin.com/in/sagar-barate-6b22041b3"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="scroll-card border-3d p-3 bg-navy-800/40 hover:bg-navy-800/60 text-white transform transition-all duration-300"
@@ -197,7 +208,7 @@ const Landing = () => {
               </a>
 
               <a
-                href="https://github.com/yourusername"
+                href="https://github.com/SagarBarate"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="scroll-card border-3d p-3 bg-navy-800/40 hover:bg-navy-800/60 text-white transform transition-all duration-300"

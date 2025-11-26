@@ -1,60 +1,34 @@
-// Skills data organized by categories
+// Skills data organized by 4 categories
 
 export const skills = {
-  frontend: [
-    { name: "React", level: "Advanced" },
-    { name: "JavaScript", level: "Advanced" },
-    { name: "TypeScript", level: "Intermediate" },
-    { name: "HTML5", level: "Advanced" },
-    { name: "CSS3", level: "Advanced" },
-    { name: "Tailwind CSS", level: "Advanced" },
-    { name: "Vue.js", level: "Intermediate" },
-    { name: "Next.js", level: "Intermediate" }
-  ],
-  backend: [
-    { name: "Node.js", level: "Advanced" },
-    { name: "Express.js", level: "Advanced" },
-    { name: "Python", level: "Advanced" },
-    { name: "Django", level: "Intermediate" },
-    { name: "Flask", level: "Intermediate" },
-    { name: "REST APIs", level: "Advanced" },
-    { name: "GraphQL", level: "Intermediate" }
-  ],
-  cloud: [
-    { name: "AWS", level: "Intermediate" },
-    { name: "Azure", level: "Intermediate" },
-    { name: "Google Cloud", level: "Beginner" },
-    { name: "Docker", level: "Intermediate" },
-    { name: "Kubernetes", level: "Beginner" },
-    { name: "Serverless", level: "Intermediate" }
-  ],
-  devops: [
-    { name: "CI/CD", level: "Intermediate" },
-    { name: "Git", level: "Advanced" },
-    { name: "GitHub Actions", level: "Intermediate" },
-    { name: "Jenkins", level: "Beginner" },
-    { name: "Linux", level: "Intermediate" }
-  ],
-  tools: [
-    { name: "VS Code", level: "Advanced" },
-    { name: "Postman", level: "Advanced" },
-    { name: "Figma", level: "Intermediate" },
-    { name: "Jira", level: "Intermediate" },
-    { name: "Slack", level: "Advanced" }
-  ],
-  databases: [
-    { name: "MongoDB", level: "Advanced" },
-    { name: "PostgreSQL", level: "Intermediate" },
-    { name: "MySQL", level: "Intermediate" },
-    { name: "Redis", level: "Intermediate" },
-    { name: "Firebase", level: "Intermediate" }
-  ],
   languages: [
-    { name: "JavaScript", level: "Advanced" },
-    { name: "Python", level: "Advanced" },
-    { name: "Java", level: "Intermediate" },
-    { name: "C++", level: "Intermediate" },
-    { name: "Go", level: "Beginner" }
+    { name: "Java", level: "Advanced", proficiency: 90 },
+    { name: "JavaScript", level: "Advanced", proficiency: 90 },
+    { name: "Python", level: "Intermediate", proficiency: 70 }
+  ],
+  frameworks: [
+    { name: "Spring Boot", level: "Advanced", proficiency: 90 },
+    { name: "React.js", level: "Advanced", proficiency: 90 },
+    { name: "Next.js", level: "Intermediate", proficiency: 75 },
+    { name: "Django", level: "Intermediate", proficiency: 70 },
+    { name: "Tailwind CSS", level: "Advanced", proficiency: 90 },
+    { name: "REST API", level: "Advanced", proficiency: 90 },
+    { name: "GraphQL", level: "Intermediate", proficiency: 70 }
+  ],
+  devopsCloud: [
+    { name: "AWS", level: "Intermediate", proficiency: 75 },
+    { name: "Docker", level: "Intermediate", proficiency: 75 },
+    { name: "Kubernetes", level: "Beginner", proficiency: 60 },
+    { name: "CI/CD", level: "Intermediate", proficiency: 75 },
+    { name: "GitHub Actions", level: "Intermediate", proficiency: 75 },
+    { name: "Jenkins", level: "Beginner", proficiency: 60 },
+    { name: "Serverless", level: "Intermediate", proficiency: 70 },
+    { name: "Linux", level: "Intermediate", proficiency: 75 }
+  ],
+  toolsUtilities: [
+    { name: "Git", level: "Advanced", proficiency: 90 },
+    { name: "VS Code", level: "Advanced", proficiency: 90 },
+    { name: "Jira", level: "Intermediate", proficiency: 75 }
   ]
 };
 

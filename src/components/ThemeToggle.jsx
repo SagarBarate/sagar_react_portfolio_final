@@ -18,7 +18,8 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 border-2 border-white/20 bg-white/10 hover:bg-white/20 transition-colors rounded-lg"
+      className="p-2 border-2 border-ninja-orange bg-ninja-orange/20 dark:bg-ninja-orange/30 hover:bg-ninja-orange transition-colors"
+      style={{ clipPath: 'polygon(20% 0%, 80% 0%, 100% 50%, 80% 100%, 20% 100%, 0% 50%)' }}
       aria-label="Toggle theme"
     >
       {currentTheme === 'dark' ? (

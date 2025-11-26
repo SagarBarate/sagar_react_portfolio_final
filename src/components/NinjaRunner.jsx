@@ -612,40 +612,59 @@ const NinjaRunner = () => {
 
   return (
     <div className="w-full">
-      <div className="glass scroll-card p-4">
-        <div className="text-center mb-3">
-          <h3 className="text-lg font-bold mb-2 ninja-text text-ninja-orange">
+      <div className="glass scroll-card p-6 rounded-2xl bg-navy-800/50 backdrop-blur-lg border-3d shadow-2xl">
+        {/* Modern Header */}
+        <div className="text-center mb-4">
+          <h3 className="text-2xl md:text-3xl font-bold mb-3 ninja-text text-transparent bg-clip-text bg-gradient-to-r from-dark-orange to-ninja-orange">
             Ninja Runner 🥷🏻
           </h3>
-          <div className="flex justify-between items-center mb-3">
-            <div>
-              <p className="text-xs text-gray-700">Score</p>
-              <p className="text-xl font-bold text-ninja-orange">{score}</p>
+          
+          {/* Stats Bar */}
+          <div className="flex justify-between items-center mb-4 p-3 rounded-lg bg-navy-900/50 border border-orange-500/30">
+            <div className="flex flex-col items-center">
+              <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">Score</p>
+              <p className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-dark-orange to-ninja-orange">
+                {score}
+              </p>
             </div>
-            <div>
-              <p className="text-xs text-gray-600">
-                SPACE: Jump / Double Jump
+            <div className="h-12 w-px bg-orange-500/30"></div>
+            <div className="flex flex-col items-center">
+              <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">Controls</p>
+              <p className="text-sm text-gray-300 font-semibold">
+                SPACE: Jump
               </p>
             </div>
           </div>
         </div>
 
-        {/* Game canvas container - larger size for better visibility */}
-        <div
-          ref={gameRef}
-          className="relative w-full border-4 border-ninja-orange overflow-hidden bg-white"
-          style={{ height: '600px', minHeight: '500px' }}
-        >
-          <canvas
-            ref={canvasRef}
-            className="absolute inset-0 w-full h-full"
-            style={{ display: 'block' }}
-          />
+        {/* Game canvas container - Modern styling */}
+        <div className="relative rounded-xl overflow-hidden border-3d shadow-inner bg-gradient-to-b from-navy-900/80 to-navy-900">
+          <div
+            ref={gameRef}
+            className="relative w-full overflow-hidden bg-white/95"
+            style={{ height: '500px', minHeight: '400px' }}
+          >
+            <canvas
+              ref={canvasRef}
+              className="absolute inset-0 w-full h-full"
+              style={{ display: 'block' }}
+            />
+            {/* Overlay gradient for depth */}
+            <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-navy-900/10 to-transparent"></div>
+          </div>
         </div>
 
-        <p className="text-center mt-3 text-xs text-gray-600">
-          Share your best score! 🎯
-        </p>
+        {/* Footer */}
+        <div className="mt-4 text-center">
+          <p className="text-sm text-gray-400 font-medium">
+            Share your best score! 🎯
+          </p>
+          {score > 0 && !gameStartedRef.current && gameOverRef.current && (
+            <p className="text-xs text-gray-500 mt-2">
+              Press SPACE to restart
+            </p>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ const Header = () => {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 glass border-b border-orange-500/30 bg-navy-900/80 backdrop-blur-md">
+    <header className="fixed top-0 left-0 right-0 z-50 glass border-b-2 border-white/30 bg-navy-900/80 backdrop-blur-md">
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link 
@@ -77,6 +77,16 @@ const Header = () => {
                 }`}
               >
                 Skills
+              </Link>
+              <Link
+                to="/lets-connect"
+                className={`px-4 py-2 font-semibold uppercase tracking-wider transition-all rounded-lg ${
+                  isActive('/lets-connect') 
+                    ? 'bg-dark-orange text-white border border-orange-500/50' 
+                    : 'hover:bg-navy-800/60 text-white border border-transparent hover:border-orange-500/40'
+                }`}
+              >
+                Connect
               </Link>
             </div>
           </div>

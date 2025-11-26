@@ -31,10 +31,15 @@ const Projects = () => {
   }, []);
 
   return (
-    <div className="min-h-screen dotted-background">
+    <div className="min-h-screen dotted-background relative overflow-hidden grid-hover-area">
       <Header />
       
-      <div className="pt-24 pb-16 px-4">
+      {/* Animated Grid Background - Darker */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <div className="animated-grid"></div>
+      </div>
+      
+      <div className="pt-24 pb-16 px-4 relative z-10">
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-12">
             <h1 className="text-5xl md:text-6xl font-bold mb-4 ninja-text">
@@ -45,12 +50,12 @@ const Projects = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
             {projects.map((project) => (
               <div
                 key={project.id}
                 onClick={() => handleProjectClick(project)}
-                className="scroll-card border-3d overflow-hidden cursor-pointer transform transition-all duration-300 bg-navy-800/40"
+                className="project-card overflow-hidden cursor-pointer transform transition-all duration-300 bg-navy-800/40 hover:bg-navy-800/60"
               >
                 <div className="relative h-48 overflow-hidden">
                   {!imagesLoaded[project.id] ? (
@@ -127,7 +132,11 @@ const Projects = () => {
         isOpen={isModalOpen}
         onClose={closeModal}
       />
-      <Footer />
+      
+      {/* Separate Footer Section */}
+      <div className="mt-16 pt-8 border-t border-white/10">
+        <Footer />
+      </div>
     </div>
   );
 };

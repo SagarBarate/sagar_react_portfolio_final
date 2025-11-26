@@ -1,3 +1,5 @@
+import SagarBarateCV from '../assets/SagarBarateCV.pdf';
+
 const WorkExperience = () => {
   const experiences = [
     {
@@ -14,8 +16,8 @@ const WorkExperience = () => {
 
   const handleDownloadCV = () => {
     const link = document.createElement('a');
-    link.href = '/assets/Sagar_Barate_CV.pdf';
-    link.download = 'Sagar_Barate_CV.pdf';
+    link.href = SagarBarateCV;
+    link.download = 'SagarBarateCV.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

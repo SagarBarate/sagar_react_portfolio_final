@@ -34,6 +34,20 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
             {project.description}
           </p>
 
+          {project.highlights && project.highlights.length > 0 && (
+            <div className="mb-6">
+              <h3 className="text-lg font-semibold mb-3 text-white">Highlights</h3>
+              <ul className="space-y-2">
+                {project.highlights.map((highlight, index) => (
+                  <li key={index} className="text-gray-300 flex items-start">
+                    <span className="text-orange-500 mr-2 font-bold">•</span>
+                    <span className="leading-relaxed">{highlight}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
           <div className="mb-6">
             <h3 className="text-lg font-semibold mb-3 text-white">Tech Stack</h3>
             <div className="flex flex-wrap gap-2">

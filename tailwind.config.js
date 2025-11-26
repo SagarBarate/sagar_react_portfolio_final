@@ -22,6 +22,8 @@ export default {
         'slash': 'slash 0.5s ease-out',
         'ninja-run': 'ninja-run 0.6s steps(4) infinite',
         'obstacle-move': 'obstacle-move linear infinite',
+        'spin-slow': 'spin 8s linear infinite',
+        'spin-reverse': 'spin-reverse 6s linear infinite',
       },
       keyframes: {
         float: {
@@ -40,6 +42,10 @@ export default {
         'obstacle-move': {
           '0%': { transform: 'translateX(100%)' },
           '100%': { transform: 'translateX(-100px)' },
+        },
+        'spin-reverse': {
+          '0%': { transform: 'rotate(360deg)' },
+          '100%': { transform: 'rotate(0deg)' },
         },
       },
       fontFamily: {

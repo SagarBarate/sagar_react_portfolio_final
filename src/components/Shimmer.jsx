@@ -34,3 +34,4 @@ const Shimmer = ({ type = 'default', className = '' }) => {
 
 export default Shimmer;
 
+

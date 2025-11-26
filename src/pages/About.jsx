@@ -89,7 +89,7 @@ const About = () => {
               <div className="flex flex-col items-center gap-4">
                 <div className="flex gap-4 justify-center">
                   <a
-                    href="https://linkedin.com/in/yourusername"
+                    href="https://www.linkedin.com/in/sagar-barate-6b22041b3"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-2 border-2 border-orange-500/40 rounded-full hover:bg-dark-orange hover:text-white transition-colors"
@@ -99,7 +99,7 @@ const About = () => {
                     </svg>
                   </a>
                   <a
-                    href="https://github.com/yourusername"
+                    href="https://github.com/SagarBarate"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-2 border-2 border-orange-500/40 rounded-full hover:bg-dark-orange hover:text-white transition-colors"
@@ -109,13 +109,23 @@ const About = () => {
                     </svg>
                   </a>
                   <a
-                    href="https://auth.geeksforgeeks.org/user/yourusername"
+                    href="https://leetcode.com/u/Sagarbarate/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-2 border-2 border-orange-500/40 rounded-full hover:bg-dark-orange hover:text-white transition-colors"
                   >
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+                      <path d="M16.102 17.93l-2.697 2.607c-.466.467-1.111.662-1.823.662s-1.357-.195-1.824-.662l-4.332-4.363c-.467-.467-.702-1.15-.702-1.863s.235-1.357.702-1.824l4.319-4.38c.467-.467 1.125-.645 1.837-.645s.357.195.824.662l2.697 2.606c.514.515 1.365.497 1.9-.038.535-.536.553-1.387.039-1.901l-2.609-2.636a5.055 5.055 0 0 0-2.445-1.337l2.467-2.503c.516-.514.498-1.365-.037-1.9-.535-.535-1.386-.553-1.899-.039l-4.319 4.38c-.467.467-.702 1.15-.702 1.863s.235 1.357.702 1.824l4.332 4.363c.467.467 1.111.662 1.824.662s1.357-.195 1.823-.662l2.697-2.607c.514-.515 1.365-.497 1.899.038.535.536.553 1.387.039 1.901zm9.603-4.317a11.815 11.815 0 0 1-.87 4.123 12.02 12.02 0 0 1-3.269 4.893 12.136 12.136 0 0 1-4.863 2.94 12.32 12.32 0 0 1-5.393.536 11.898 11.898 0 0 1-4.74-1.728 12.076 12.076 0 0 1-4.012-4.412 11.815 11.815 0 0 1-1.728-4.74c-.195-1.9.039-3.777.662-5.536a12.02 12.02 0 0 1 2.94-4.863 12.136 12.136 0 0 1 4.893-3.269c1.9-.623 3.777-.857 5.536-.662a11.898 11.898 0 0 1 4.74 1.728 12.076 12.076 0 0 1 4.412 4.012c.857 1.365 1.442 2.87 1.728 4.412.195 1.365.195 2.73 0 4.095z"/>
+                    </svg>
+                  </a>
+                  <a
+                    href="https://www.hackerrank.com/profile/sagarbarate2907"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 border-2 border-orange-500/40 rounded-full hover:bg-dark-orange hover:text-white transition-colors"
+                  >
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 0c1.285 0 9.75 2.25 9.75 11.25S13.285 22.5 12 22.5s-9.75-2.25-9.75-11.25S10.715 0 12 0zm0 20.25c2.925 0 7.5-1.425 7.5-9 0-7.575-4.575-9-7.5-9S4.5 3.675 4.5 11.25c0 7.575 4.575 9 7.5 9zm-1.125-18c0 .375-.375.75-.75.75s-.75-.375-.75-.75.375-.75.75-.75.75.375.75.75zm2.25 3c0 .375-.375.75-.75.75s-.75-.375-.75-.75.375-.75.75-.75.75.375.75.75zm-4.5 3c0 .375-.375.75-.75.75s-.75-.375-.75-.75.375-.75.75-.75.75.375.75.75zm9 0c0 .375-.375.75-.75.75s-.75-.375-.75-.75.375-.75.75-.75.75.375.75.75zm-6.75 3c0 .375-.375.75-.75.75s-.75-.375-.75-.75.375-.75.75-.75.75.375.75.75zm4.5 0c0 .375-.375.75-.75.75s-.75-.375-.75-.75.375-.75.75-.75.75.375.75.75zm-4.5 3c0 .375-.375.75-.75.75s-.75-.375-.75-.75.375-.75.75-.75.75.375.75.75zm4.5 0c0 .375-.375.75-.75.75s-.75-.375-.75-.75.375-.75.75-.75.75.375.75.75z"/>
                     </svg>
                   </a>
                 </div>
