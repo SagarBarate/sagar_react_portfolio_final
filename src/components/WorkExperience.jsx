@@ -30,7 +30,7 @@ const WorkExperience = () => {
         {experiences.map((exp, index) => (
           <div 
             key={index} 
-            className="scroll-card border-3d p-6 bg-navy-800/40 hover:bg-navy-800/60 transition-all duration-300"
+            className="project-card-white-border p-6 bg-navy-800/40 hover:bg-navy-800/60 transition-all duration-300"
           >
             <h3 className="text-xl font-semibold text-white mb-2">{exp.title}</h3>
             <p className="text-gray-300 mb-2 font-medium">{exp.company}</p>
@@ -42,7 +42,7 @@ const WorkExperience = () => {
       {/* Download CV Button */}
       <button
         onClick={handleDownloadCV}
-        className="w-full kunai-button text-center"
+        className="w-full kunai-button-white text-center"
       >
         Download CV
       </button>

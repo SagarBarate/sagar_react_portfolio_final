@@ -76,7 +76,7 @@ const Contact = () => {
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 bg-navy-800/40 border border-orange-500/30 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-orange-500/60 focus:bg-navy-800/60 transition-all"
+            className="w-full px-4 py-3 bg-navy-800/40 border-2 border-white/30 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-white/60 focus:bg-navy-800/60 transition-all"
           />
         </div>
         <div>
@@ -87,7 +87,7 @@ const Contact = () => {
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 bg-navy-800/40 border border-orange-500/30 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-orange-500/60 focus:bg-navy-800/60 transition-all"
+            className="w-full px-4 py-3 bg-navy-800/40 border-2 border-white/30 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-white/60 focus:bg-navy-800/60 transition-all"
           />
         </div>
         <div>
@@ -98,7 +98,7 @@ const Contact = () => {
             onChange={handleChange}
             required
             rows="5"
-            className="w-full px-4 py-3 bg-navy-800/40 border border-orange-500/30 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-orange-500/60 focus:bg-navy-800/60 transition-all resize-none"
+            className="w-full px-4 py-3 bg-navy-800/40 border-2 border-white/30 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-white/60 focus:bg-navy-800/60 transition-all resize-none"
           />
         </div>
         <button
@@ -113,7 +113,7 @@ const Contact = () => {
       {/* Toast Notification */}
       {toast.show && (
         <div
-          className={`fixed bottom-4 right-4 px-6 py-3 rounded-lg shadow-lg z-50 transition-all border border-orange-500/30 ${
+          className={`fixed bottom-4 right-4 px-6 py-3 rounded-lg shadow-lg z-50 transition-all border-2 border-white/30 ${
             toast.type === 'success'
               ? 'bg-dark-orange text-white'
               : 'bg-red-600 text-white'

@@ -11,6 +11,63 @@ const Skills = () => {
     setTimeout(() => setSkillsLoaded(true), 300);
   }, []);
 
+  // Create interactive mesh squares
+  useEffect(() => {
+    const meshContainer = document.getElementById('skills-mesh');
+    if (!meshContainer) return;
+
+    const squareSize = 50;
+    const cols = Math.ceil(window.innerWidth / squareSize) + 2;
+    const rows = Math.ceil(window.innerHeight / squareSize) + 2;
+
+    meshContainer.innerHTML = '';
+
+    for (let i = 0; i < rows; i++) {
+      for (let j = 0; j < cols; j++) {
+        const square = document.createElement('div');
+        square.className = 'mesh-square';
+        square.style.left = `${j * squareSize}px`;
+        square.style.top = `${i * squareSize}px`;
+        meshContainer.appendChild(square);
+      }
+    }
+
+    let position = 0;
+    const animate = () => {
+      position -= 0.5;
+      if (position <= -squareSize) {
+        position = 0;
+      }
+      meshContainer.style.transform = `translateX(${position}px)`;
+      requestAnimationFrame(animate);
+    };
+    animate();
+
+    // Handle window resize
+    const handleResize = () => {
+      meshContainer.innerHTML = '';
+      const newCols = Math.ceil(window.innerWidth / squareSize) + 2;
+      const newRows = Math.ceil(window.innerHeight / squareSize) + 2;
+      
+      for (let i = 0; i < newRows; i++) {
+        for (let j = 0; j < newCols; j++) {
+          const square = document.createElement('div');
+          square.className = 'mesh-square';
+          square.style.left = `${j * squareSize}px`;
+          square.style.top = `${i * squareSize}px`;
+          meshContainer.appendChild(square);
+        }
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      meshContainer.innerHTML = '';
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   const getLevelColor = (level) => {
     switch (level) {
       case 'Advanced':
@@ -52,8 +109,14 @@ const Skills = () => {
   ];
 
   return (
-    <div className="min-h-screen skills-background relative overflow-hidden">
+    <div className="min-h-screen projects-mesh-background relative overflow-hidden">
       <Header />
+      
+      {/* Animated Mesh Background */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <div className="mesh-cage"></div>
+        <div className="interactive-mesh" id="skills-mesh"></div>
+      </div>
       
       <div className="pt-24 pb-16 px-4 relative z-10">
         <div className="container mx-auto max-w-6xl">
@@ -77,7 +140,7 @@ const Skills = () => {
               {skillCategories.map((category) => (
                 <div
                   key={category.key}
-                  className="project-card overflow-hidden transform transition-all duration-300 bg-navy-800/40 hover:bg-navy-800/60"
+                  className="project-card-white-border overflow-hidden transform transition-all duration-300 bg-navy-800/40"
                 >
                   <div className="p-6 md:p-8">
                     <div className="flex items-center gap-3 mb-6">

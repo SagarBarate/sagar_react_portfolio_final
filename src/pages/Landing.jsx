@@ -41,12 +41,75 @@ const Landing = () => {
     img.onload = () => setProfileImageLoaded(true);
   }, []);
 
+  // Create interactive mesh squares for entire landing page
+  useEffect(() => {
+    const meshContainer = document.getElementById('landing-full-mesh');
+    if (!meshContainer) return;
+
+    const squareSize = 50;
+    const cols = Math.ceil(window.innerWidth / squareSize) + 2;
+    const rows = Math.ceil(window.innerHeight / squareSize) + 2;
+
+    meshContainer.innerHTML = '';
+
+    for (let i = 0; i < rows; i++) {
+      for (let j = 0; j < cols; j++) {
+        const square = document.createElement('div');
+        square.className = 'mesh-square';
+        square.style.left = `${j * squareSize}px`;
+        square.style.top = `${i * squareSize}px`;
+        meshContainer.appendChild(square);
+      }
+    }
+
+    let position = 0;
+    const animate = () => {
+      position -= 0.5;
+      if (position <= -squareSize) {
+        position = 0;
+      }
+      meshContainer.style.transform = `translateX(${position}px)`;
+      requestAnimationFrame(animate);
+    };
+    animate();
+
+    // Handle window resize
+    const handleResize = () => {
+      meshContainer.innerHTML = '';
+      const newCols = Math.ceil(window.innerWidth / squareSize) + 2;
+      const newRows = Math.ceil(window.innerHeight / squareSize) + 2;
+      
+      for (let i = 0; i < newRows; i++) {
+        for (let j = 0; j < newCols; j++) {
+          const square = document.createElement('div');
+          square.className = 'mesh-square';
+          square.style.left = `${j * squareSize}px`;
+          square.style.top = `${i * squareSize}px`;
+          meshContainer.appendChild(square);
+        }
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      meshContainer.innerHTML = '';
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen dotted-background">
+    <div className="min-h-screen projects-mesh-background relative overflow-hidden">
       <Header />
       
+      {/* Animated Mesh Background - Full Page */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <div className="mesh-cage"></div>
+        <div className="interactive-mesh" id="landing-full-mesh"></div>
+      </div>
+      
       {/* Hero Section */}
-      <section className="pt-24 pb-12 px-4">
+      <section className="pt-24 pb-12 px-4 relative z-10">
         <div className="container mx-auto">
           {/* Game and Profile Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12 items-start">
@@ -126,9 +189,6 @@ const Landing = () => {
 
       {/* Profile Section */}
       <section id="profile-section" className="py-16 px-4 relative overflow-hidden">
-        {/* Animated Mesh Squares Background */}
-        <div className="mesh-background absolute inset-0 pointer-events-none"></div>
-        
         <div className="container mx-auto max-w-4xl relative z-10">
           <div className="glass scroll-card border-3d p-8 md:p-12 bg-navy-800/40">
             <div className="flex flex-col md:flex-row items-center gap-8 mb-12">
@@ -232,8 +292,8 @@ const Landing = () => {
       </section>
 
       {/* Contact and Work Experience Section */}
-      <section className="py-16 px-4">
-        <div className="container mx-auto max-w-6xl">
+      <section className="py-16 px-4 relative overflow-hidden">
+        <div className="container mx-auto max-w-6xl relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <div>

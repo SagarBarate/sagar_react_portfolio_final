@@ -30,6 +30,68 @@ const Projects = () => {
     });
   }, []);
 
+  // Create interactive mesh squares
+  useEffect(() => {
+    const meshContainer = document.getElementById('interactive-mesh');
+    if (!meshContainer) return;
+
+    // Clear existing squares
+    meshContainer.innerHTML = '';
+
+    // Calculate number of squares needed
+    const squareSize = 50;
+    const cols = Math.ceil(window.innerWidth / squareSize) + 2;
+    const rows = Math.ceil(window.innerHeight / squareSize) + 2;
+
+    // Create squares
+    for (let i = 0; i < rows; i++) {
+      for (let j = 0; j < cols; j++) {
+        const square = document.createElement('div');
+        square.className = 'mesh-square';
+        square.style.left = `${j * squareSize}px`;
+        square.style.top = `${i * squareSize}px`;
+        meshContainer.appendChild(square);
+      }
+    }
+
+    // Animate squares moving left to right
+    let position = 0;
+    const animate = () => {
+      position -= 0.5;
+      if (position <= -squareSize) {
+        position = 0;
+      }
+      meshContainer.style.transform = `translateX(${position}px)`;
+      requestAnimationFrame(animate);
+    };
+    animate();
+
+    // Handle window resize
+    const handleResize = () => {
+      meshContainer.innerHTML = '';
+      const newCols = Math.ceil(window.innerWidth / squareSize) + 2;
+      const newRows = Math.ceil(window.innerHeight / squareSize) + 2;
+      
+      for (let i = 0; i < newRows; i++) {
+        for (let j = 0; j < newCols; j++) {
+          const square = document.createElement('div');
+          square.className = 'mesh-square';
+          square.style.left = `${j * squareSize}px`;
+          square.style.top = `${i * squareSize}px`;
+          meshContainer.appendChild(square);
+        }
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup
+    return () => {
+      meshContainer.innerHTML = '';
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen projects-mesh-background relative overflow-hidden">
       <Header />
@@ -37,6 +99,7 @@ const Projects = () => {
       {/* Animated Mesh Background */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <div className="mesh-cage"></div>
+        <div className="interactive-mesh" id="interactive-mesh"></div>
       </div>
       
       <div className="pt-24 pb-16 px-4 relative z-10">
